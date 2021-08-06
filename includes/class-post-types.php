@@ -37,8 +37,7 @@ class Post_Types {
 		$this->data_structures->add_post_type(
 			'kanopi_checklist',
 			array(
-				'singular'            => __( 'Launch Checklist', 'kanopi-launch-checklist' ),
-				'plural'              => __( 'Launch Checklist Items', 'kanopi-launch-checklist' ),
+				'singular'            => __( 'Launch Checklist Item', 'kanopi-launch-checklist' ),
 				'description'         => __( 'Post type for Resource Library', 'kanopi-launch-checklist' ),
 				'supports'            =>
 					array(
