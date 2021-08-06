@@ -1,0 +1,27 @@
+{
+    "name": "kanopi/kanopi-launch-checklist",
+    "description": "Plugin for managing site launches via a checklist interface.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Kanopi Studios",
+            "email": "support@kanopistudios.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+      "classmap": [
+        "admin",
+        "includes"
+      ],
+      "exclude-from-classmap": [
+        "includes/class-kanopi-launch-checklist.php",
+        "includes/class-activator.php",
+        "includes/class-deactivator.php"
+      ],
+      "files": [
+        "includes/helpers.php"
+      ]
+    }
+}
