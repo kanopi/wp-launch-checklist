@@ -1,6 +1,6 @@
 {
     "key": "group_610d5f17e1e8e",
-    "title": "Checklist Items",
+    "title": "Checklist Details",
     "fields": [
         {
             "key": "field_610d5f88308c5",
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628266803
+    "modified": 1628268379
 }
