@@ -1,1 +1,1 @@
-# wp-launch-checklist
+# WordPress Launch Checklist Plugin
