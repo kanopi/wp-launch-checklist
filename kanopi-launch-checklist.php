@@ -48,7 +48,7 @@ define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE
  * The code that runs during plugin activation.
  * This action is documented in includes/class-kanopi-launch-checklist-activator.php
  */
-function activate_Kanopi_Launch_Checklist() {
+function activate_kanopi_launch_checklist() {
 	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-activator.php';
 	Activator::activate();
 }
@@ -57,13 +57,13 @@ function activate_Kanopi_Launch_Checklist() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-kanopi-launch-checklist-deactivator.php
  */
-function deactivate_Kanopi_Launch_Checklist() {
+function deactivate_kanopi_launch_checklist() {
 	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-deactivator.php';
 	Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_Kanopi_Launch_Checklist' );
-register_deactivation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\deactivate_Kanopi_Launch_Checklist' );
+register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_kanopi_launch_checklist' );
+register_deactivation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\deactivate_kanopi_launch_checklist' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -80,10 +80,10 @@ require KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-kanopi-launch-checklist.p
  *
  * @since    1.0.0
  */
-function run_Kanopi_Launch_Checklist() {
+function run_kanopi_launch_checklist() {
 
 	$plugin = new Kanopi_Launch_Checklist();
 	$plugin->run();
 
 }
-run_Kanopi_Launch_Checklist();
+run_kanopi_launch_checklist();
