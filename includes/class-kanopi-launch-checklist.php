@@ -130,11 +130,6 @@ class Kanopi_Launch_Checklist {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
-		// Post types.
-		$post_types = new Post_Types();
-		$this->loader->add_action( 'init', $post_types, 'init' );
-
 		// Admin scripts and styles.
 		$plugin_admin = new Admin( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -146,6 +141,7 @@ class Kanopi_Launch_Checklist {
 		$this->loader->add_action( 'admin_init', $acf_config, 'add_field_groups_to_allow_list' );
 		$this->loader->add_action( 'acf/init', $acf_config, 'add_options_page' );
 		$this->loader->add_action( 'acf/update_field_group', $acf_config, 'update_field_group', 1, 1 );
+
 
 	}
 
