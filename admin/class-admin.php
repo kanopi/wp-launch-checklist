@@ -33,7 +33,7 @@ class Admin {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private $plugin_name;
+	private string $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -57,8 +57,6 @@ class Admin {
 		$this->plugin_name      = $plugin_name;
 		$this->version          = $version;
 		$this->checklist_config = $this->get_config( 'checklist_items' );
-
-		return;
 	}
 
 	/**

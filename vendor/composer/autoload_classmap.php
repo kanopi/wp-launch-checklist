@@ -13,5 +13,6 @@ return array(
     'Kanopi\\Kanopi_Launch_Checklist\\Admin_Notice' => $baseDir . '/includes/class-admin-notice.php',
     'Kanopi\\Kanopi_Launch_Checklist\\Config' => $baseDir . '/includes/trait-config.php',
     'Kanopi\\Kanopi_Launch_Checklist\\Loader' => $baseDir . '/includes/class-loader.php',
+    'Kanopi\\Kanopi_Launch_Checklist\\Options_Page' => $baseDir . '/admin/class-options-page.php',
     'Kanopi\\Kanopi_Launch_Checklist\\i18n' => $baseDir . '/includes/class-i18n.php',
 );

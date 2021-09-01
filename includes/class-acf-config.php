@@ -114,22 +114,4 @@ class ACF_Config {
 		return $paths;
 	}
 
-	/**
-	 * Add an ACF Options page for the plugin.
-	 *
-	 * NOTE: Fields for the options page are configured via ACF via the WP admin.
-	 */
-	public function add_options_page() {
-		acf_add_options_sub_page(
-			array(
-				'page_title'  => __( 'Launch Checklist', 'kanopi-launch-checklist' ),
-				'menu_title'  => __( 'Launch Checklist', 'kanopi-launch-checklist' ),
-				'menu_slug'   => 'kanopi-launch-checklist',
-				'parent_slug' => 'options-general.php',
-				'capability'  => 'manage_options',
-				'redirect'    => false,
-			)
-		);
-	}
-
 }

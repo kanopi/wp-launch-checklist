@@ -28,6 +28,7 @@ class ComposerStaticInit783da1ef6aab2e169337631c9fe9c5b1
         'Kanopi\\Kanopi_Launch_Checklist\\Admin_Notice' => __DIR__ . '/../..' . '/includes/class-admin-notice.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Config' => __DIR__ . '/../..' . '/includes/trait-config.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Loader' => __DIR__ . '/../..' . '/includes/class-loader.php',
+        'Kanopi\\Kanopi_Launch_Checklist\\Options_Page' => __DIR__ . '/../..' . '/admin/class-options-page.php',
         'Kanopi\\Kanopi_Launch_Checklist\\i18n' => __DIR__ . '/../..' . '/includes/class-i18n.php',
     );
 

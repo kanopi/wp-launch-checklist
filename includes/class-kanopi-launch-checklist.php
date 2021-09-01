@@ -135,11 +135,14 @@ class Kanopi_Launch_Checklist {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		// Options/settings page
+		$options_page = new Options_Page();
+		$this->loader->add_action( 'admin_init', $options_page, 'initialize_options' );
+
 		// ACF plugin configuration.
 		$config     = kanopi_launch_checklist_get_config_setting( 'acf_field_groups' );
 		$acf_config = new ACF_Config( $config );
 		$this->loader->add_action( 'admin_init', $acf_config, 'add_field_groups_to_allow_list' );
-		$this->loader->add_action( 'acf/init', $acf_config, 'add_options_page' );
 		$this->loader->add_action( 'acf/update_field_group', $acf_config, 'update_field_group', 1, 1 );
 
 
