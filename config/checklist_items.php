@@ -19,6 +19,11 @@ return [
 				'name'        => '',
 				'label'       => '',
 			],
+			[
+				'description' => '',
+				'name'        => '',
+				'label'       => '',
+			],
 		],
 	],
 	[
