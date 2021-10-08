@@ -36,7 +36,7 @@ function kanopi_launch_checklist_get_config_array() {
  * @return array
  */
 function kanopi_launch_checklist_get_config_setting( string $key ) {
-	$config = Kanopi_Launch_Checklist_get_config_array();
+	$config = kanopi_launch_checklist_get_config_array();
 
 	return ( isset( $config[ $key ] ) ) ? $config[ $key ] : array();
 }

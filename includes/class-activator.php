@@ -24,6 +24,13 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  */
 class Activator {
 
+	use Config;
+
+	/**
+	 * @var false|mixed|void
+	 */
+	protected $checklist_data;
+
 	/**
 	 * Short Description. (use period)
 	 *
@@ -31,8 +38,24 @@ class Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public function activate() {
+		$this->checklist_data = $this->get_config( 'checklist_items' );
+		$this->maybe_insert_checklist_data();
+	}
 
+	/**
+	 * When the plugin is activated, check if checklist items are already
+	 * in the database. If not, let's insert the initial set so we have
+	 * data to work with.
+	 */
+	protected function maybe_insert_checklist_data() {
+		if ( false === get_option( KANOPI_LAUNCH_CHECKLIST_ROOT ) ) {
+			$option = array(
+				'config' => $this->checklist_data,
+				'data'   => array(),
+			);
+			update_option( KANOPI_LAUNCH_CHECKLIST_ROOT, $option );
+		}
 	}
 
 }

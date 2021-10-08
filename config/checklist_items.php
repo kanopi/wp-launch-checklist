@@ -14,6 +14,11 @@ return [
 				'name'        => '',
 				'label'       => '',
 			],
+			[
+				'description' => '',
+				'name'        => '',
+				'label'       => '',
+			],
 		],
 	],
 	[
@@ -21,6 +26,11 @@ return [
 		'description' => __( 'Fermentum dapibus eget ac rhoncus feugiat quisque torquent porta elit elementum class.',
 		                     'kanopi' ),
 		'items'       => [
+			[
+				'description' => '',
+				'name'        => '',
+				'label'       => '',
+			],
 			[
 				'description' => '',
 				'name'        => '',

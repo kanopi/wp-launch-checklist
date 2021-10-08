@@ -37,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'Kanopi_Launch_Checklist_VERSION', '1.0.0' );
+define( 'KANOPI_LAUNCH_CHECKLIST_VERSION', '1.0.0' );
 
 /**
  * Root path to the plugin files.
@@ -45,12 +45,18 @@ define( 'Kanopi_Launch_Checklist_VERSION', '1.0.0' );
 define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
+ * Plugin options table settings name.
+ */
+define( 'KANOPI_LAUNCH_CHECKLIST_DATA', 'kanopi_launch_checklist_data' );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-kanopi-launch-checklist-activator.php
  */
 function activate_kanopi_launch_checklist() {
 	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-activator.php';
-	Activator::activate();
+	$activator = new Activator;
+	$activator->activate();
 }
 
 /**
@@ -59,7 +65,8 @@ function activate_kanopi_launch_checklist() {
  */
 function deactivate_kanopi_launch_checklist() {
 	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-deactivator.php';
-	Deactivator::deactivate();
+	$deactivator = new Deactivator;
+	$deactivator->deactivate();
 }
 
 register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_kanopi_launch_checklist' );
