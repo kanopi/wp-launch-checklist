@@ -47,7 +47,7 @@ define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE
 /**
  * Plugin options table settings name.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_DATA', 'kanopi_launch_checklist_data' );
+define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'kanopi_launch_checklist' );
 
 /**
  * The code that runs during plugin activation.
