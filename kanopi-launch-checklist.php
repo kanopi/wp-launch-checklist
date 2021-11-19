@@ -45,9 +45,14 @@ define( 'KANOPI_LAUNCH_CHECKLIST_VERSION', '1.0.0' );
 define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
- * Plugin options table settings name.
+ * Plugin name.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'kanopi_launch_checklist' );
+define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'Kanopi Launch Checklist' );
+
+/**
+ * Plugin options table settings slug.
+ */
+define( 'KANOPI_LAUNCH_CHECKLIST_SLUG', 'kanopi-launch-checklist' );
 
 /**
  * The code that runs during plugin activation.
@@ -88,9 +93,24 @@ require KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-kanopi-launch-checklist.p
  * @since    1.0.0
  */
 function run_kanopi_launch_checklist() {
+	require_once( KANOPI_LAUNCH_CHECKLIST_ROOT . 'vendor/autoload.php' );
 
-	$plugin = new Kanopi_Launch_Checklist();
-	$plugin->run();
+	$requirements = new Plugin_Requirements(
+		[
+			'plugin_name'         => KANOPI_LAUNCH_CHECKLIST_NAME,
+			'php_version'         => '7.4',
+			'wp_version'          => '5.5',
+			'plugin_file'         => __FILE__,
+			'php_server_version'  => phpversion(),
+			'wp_server_version'   => get_bloginfo( 'version' ),
+			'plugin_dependencies' => [],
+		]
+	);
 
+	if ( $requirements->plugin_requirements_met() ) {
+		$plugin = new Kanopi_Launch_Checklist();
+		$plugin->run();
+	}
 }
+
 run_kanopi_launch_checklist();

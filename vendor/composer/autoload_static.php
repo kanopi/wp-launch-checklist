@@ -21,14 +21,13 @@ class ComposerStaticInit783da1ef6aab2e169337631c9fe9c5b1
     );
 
     public static $classMap = array (
-        'Certent_Geo\\Plugin_Requirements' => __DIR__ . '/../..' . '/includes/class-plugin-requirements.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\ACF_Config' => __DIR__ . '/../..' . '/includes/class-acf-config.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Admin' => __DIR__ . '/../..' . '/admin/class-admin.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Admin_Notice' => __DIR__ . '/../..' . '/includes/class-admin-notice.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Config' => __DIR__ . '/../..' . '/includes/trait-config.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Loader' => __DIR__ . '/../..' . '/includes/class-loader.php',
         'Kanopi\\Kanopi_Launch_Checklist\\Options_Page' => __DIR__ . '/../..' . '/admin/class-options-page.php',
+        'Kanopi\\Kanopi_Launch_Checklist\\Plugin_Requirements' => __DIR__ . '/../..' . '/includes/class-plugin-requirements.php',
         'Kanopi\\Kanopi_Launch_Checklist\\i18n' => __DIR__ . '/../..' . '/includes/class-i18n.php',
     );
 

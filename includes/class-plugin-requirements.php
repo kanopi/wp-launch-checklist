@@ -1,6 +1,6 @@
 <?php
 
-namespace Certent_Geo;
+namespace Kanopi\Kanopi_Launch_Checklist;
 
 /**
  * Class Plugin_Requirements
@@ -8,7 +8,7 @@ namespace Certent_Geo;
  * Check plugin requirements and either continue with initialization
  * or display admin notice.
  *
- * @package Certent_Geo
+ * @package Kanopi Launch Checklist
  */
 class Plugin_Requirements {
 
@@ -19,7 +19,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $plugin_name;
+	private string $plugin_name;
 
 	/**
 	 * Required WordPress Version
@@ -28,7 +28,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $wp_version;
+	private string $wp_version;
 
 	/**
 	 * Required PHP version.
@@ -37,7 +37,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $php_version;
+	private string $php_version;
 
 	/**
 	 * The plugin file.
@@ -46,7 +46,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $plugin_file;
+	private string $plugin_file;
 
 	/**
 	 * The installed WP version to compare against.
@@ -55,7 +55,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $wp_server_version;
+	private string $wp_server_version;
 
 	/**
 	 * The installed PHP version to compare against.
@@ -64,7 +64,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $php_server_version;
+	private string $php_server_version;
 
 	/**
 	 * The required plugin dependencies.
@@ -73,10 +73,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $plugin_dependencies = [
-		'Advanced Custom Fields Pro' => 'advanced-custom-fields-pro/acf.php',
-		'WPEngine GeoTarget'         => 'wpengine-geoip/class-geoip.php',
-	];
+	private array $plugin_dependencies = [];
 
 	/**
 	 * The missing plugin dependencies.
@@ -85,7 +82,7 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	private $missing_plugin_dependencies = [];
+	private array $missing_plugin_dependencies = [];
 
 	/**
 	 * Construct -- Set properties, etc.
@@ -94,21 +91,20 @@ class Plugin_Requirements {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct( $args ) {
+	public function __construct( array $args ) {
 		foreach ( $args as $key => $value ) {
 			$this->{$key} = $value;
 		}
-		require_once CERTENT_GEO_INC_DIR . 'class-admin-notice.php';
 	}
 
 	/**
 	 * Check to see if the plugin's version requirements are met.
 	 *
-	 * @return boolean
+	 * @return bool
 	 * @since 1.0.0
 	 *
 	 */
-	public function plugin_requirements_met() {
+	public function plugin_requirements_met() : bool {
 		$plugin_requirements_met = $this->php_requirement_met() && $this->wp_requirement_met() && $this->plugin_dependencies_requirement_met();
 		if ( false === $plugin_requirements_met ) {
 			add_action( 'admin_notices', [ $this, 'deactivate' ], 99 );
@@ -120,11 +116,11 @@ class Plugin_Requirements {
 	/**
 	 * Check to see if PHP version requirement is met.
 	 *
-	 * @return boolean
+	 * @return bool
 	 * @since 1.0.0
 	 *
 	 */
-	public function php_requirement_met() {
+	public function php_requirement_met() : bool {
 		if ( $this->version_compare( $this->php_server_version, $this->php_version ) ) {
 			return true;
 		} else {
@@ -142,16 +138,16 @@ class Plugin_Requirements {
 	 *
 	 * @return bool
 	 */
-	private function version_compare( $running_version, $required_version ) {
+	private function version_compare( $running_version, $required_version ) : bool {
 		return version_compare( $running_version, $required_version, '>=' );
 	}
 
 	/**
 	 * Check if the WP version requirement is met.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
-	public function wp_requirement_met() {
+	public function wp_requirement_met() : bool {
 		if ( $this->version_compare( $this->wp_server_version, $this->wp_version ) ) {
 			return true;
 		} else {
@@ -164,9 +160,9 @@ class Plugin_Requirements {
 	/**
 	 * Check if the ACF version requirement is met.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
-	public function plugin_dependencies_requirement_met() {
+	public function plugin_dependencies_requirement_met() : bool {
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		foreach ( $this->plugin_dependencies as $plugin_name => $plugin_path ) {
@@ -193,7 +189,8 @@ class Plugin_Requirements {
 	public function plugin_dependencies_requirement_notice() {
 		new Admin_Notice(
 			sprintf(
-				__( 'The Certent Geo plugin requires that the following plugins be installed and activated: %s.', 'certent-geo' ),
+				__( "The %s plugin requires that the following plugins be installed and activated: %s.", 'kanopi-launch-checklist' ),
+				esc_html( KANOPI_LAUNCH_CHECKLIST_NAME ),
 				implode( ', ', $this->missing_plugin_dependencies )
 			)
 		);

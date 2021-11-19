@@ -9,7 +9,7 @@ class Options_Page {
 	}
 
 	public function add_options_page() {
-		add_menu_page( 'Launch Checklist', 'Launch Checklist', 'manage_options', KANOPI_LAUNCH_CHECKLIST_NAME, [ $this, 'options_page_layout' ] );
+		add_menu_page( 'Launch Checklist', 'Launch Checklist', 'manage_options', KANOPI_LAUNCH_CHECKLIST_SLUG, [ $this, 'options_page_layout' ] );
 	}
 
 	public function options_page_layout() {
@@ -17,9 +17,9 @@ class Options_Page {
 	}
 
 	public function initialize_options() {
-		register_setting( KANOPI_LAUNCH_CHECKLIST_NAME, KANOPI_LAUNCH_CHECKLIST_NAME . '_values' );
+		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
 
-		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_NAME . '_config' );
+		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config' );
 
 		if ( empty( $checklist_data ) ) {
 			return;
@@ -30,7 +30,7 @@ class Options_Page {
 				$checklist_group['group_slug'],
 				$checklist_group['group_name'],
 				[ $this, 'settings_section_callback' ],
-				KANOPI_LAUNCH_CHECKLIST_NAME
+				KANOPI_LAUNCH_CHECKLIST_SLUG
 			);
 
 			foreach( $checklist_group[ 'items' ] as $field ) {
@@ -38,7 +38,7 @@ class Options_Page {
 					$field['name'],
 					$field['title'],
 					[ $this, 'settings_field_callback' ],
-					KANOPI_LAUNCH_CHECKLIST_NAME,
+					KANOPI_LAUNCH_CHECKLIST_SLUG,
 					$checklist_group['group_slug']
 				);
 			}
@@ -96,7 +96,7 @@ class Options_Page {
 
 
 	protected function do_settings_fields( $page, $section_id ) {
-		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_NAME . '_config' );
+		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config' );
 
 		if ( empty( $checklist_data ) ) {
 			return;

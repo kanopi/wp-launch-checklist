@@ -49,8 +49,8 @@ class Activator {
 	 * data to work with.
 	 */
 	protected function maybe_insert_checklist_data() {
-		if ( false === get_option( KANOPI_LAUNCH_CHECKLIST_NAME . '_config' ) ) {
-			update_option( KANOPI_LAUNCH_CHECKLIST_NAME . '_config', $this->checklist_data );
+		if ( false === get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config' ) ) {
+			update_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config', $this->checklist_data );
 		}
 	}
 

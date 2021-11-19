@@ -43,7 +43,16 @@ class Admin {
 	 * @access   private
 	 */
 	private string $version;
-	private array  $checklist_config;
+
+
+	/**
+	 * The checklist configuration array.
+	 *
+	 * @var      array $checklist_config The checklist configuration array.
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private array $checklist_config;
 
 	/**
 	 * Initialize the class and set its properties.

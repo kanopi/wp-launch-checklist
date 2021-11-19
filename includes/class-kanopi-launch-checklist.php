@@ -39,7 +39,7 @@ class Kanopi_Launch_Checklist {
 	 * @since    1.0.0
 	 * @access   protected
 	 */
-	protected $loader;
+	protected Loader $loader;
 
 	/**
 	 * The unique identifier of this plugin.
@@ -48,7 +48,7 @@ class Kanopi_Launch_Checklist {
 	 * @since    1.0.0
 	 * @access   protected
 	 */
-	protected $plugin_name;
+	protected string $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -57,7 +57,7 @@ class Kanopi_Launch_Checklist {
 	 * @since    1.0.0
 	 * @access   protected
 	 */
-	protected $version;
+	protected string $version;
 
 	/**
 	 * Define the core functionality of the plugin.
@@ -69,12 +69,8 @@ class Kanopi_Launch_Checklist {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'Kanopi_Launch_Checklist_VERSION' ) ) {
-			$this->version = Kanopi_Launch_Checklist_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
-		$this->plugin_name = 'kanopi-launch-checklist';
+		$this->version     = KANOPI_LAUNCH_CHECKLIST_VERSION;
+		$this->plugin_name = KANOPI_LAUNCH_CHECKLIST_SLUG;
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -99,9 +95,6 @@ class Kanopi_Launch_Checklist {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-
-		require_once( KANOPI_LAUNCH_CHECKLIST_ROOT . 'vendor/autoload.php' );
-
 		$this->loader = new Loader();
 	}
 
@@ -115,11 +108,9 @@ class Kanopi_Launch_Checklist {
 	 * @access   private
 	 */
 	private function set_locale() {
-
 		$plugin_i18n = new i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -138,14 +129,6 @@ class Kanopi_Launch_Checklist {
 		// Options/settings page
 		$options_page = new Options_Page();
 		$this->loader->add_action( 'admin_init', $options_page, 'initialize_options' );
-
-		// ACF plugin configuration.
-		$config     = kanopi_launch_checklist_get_config_setting( 'acf_field_groups' );
-		$acf_config = new ACF_Config( $config );
-		$this->loader->add_action( 'admin_init', $acf_config, 'add_field_groups_to_allow_list' );
-		$this->loader->add_action( 'acf/update_field_group', $acf_config, 'update_field_group', 1, 1 );
-
-
 	}
 
 	/**
@@ -164,7 +147,7 @@ class Kanopi_Launch_Checklist {
 	 * @return    string    The name of the plugin.
 	 * @since     1.0.0
 	 */
-	public function get_plugin_name() {
+	public function get_plugin_name() : string {
 		return $this->plugin_name;
 	}
 
@@ -174,7 +157,7 @@ class Kanopi_Launch_Checklist {
 	 * @return    Loader    Orchestrates the hooks of the plugin.
 	 * @since     1.0.0
 	 */
-	public function get_loader() {
+	public function get_loader() : Loader {
 		return $this->loader;
 	}
 
@@ -184,7 +167,7 @@ class Kanopi_Launch_Checklist {
 	 * @return    string    The version number of the plugin.
 	 * @since     1.0.0
 	 */
-	public function get_version() {
+	public function get_version() : string {
 		return $this->version;
 	}
 

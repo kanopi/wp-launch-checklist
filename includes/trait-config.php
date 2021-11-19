@@ -4,9 +4,20 @@ namespace Kanopi\Kanopi_Launch_Checklist;
 
 trait Config {
 
-	public function get_config( $filename ) {
-		$config = include KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
+	/**
+	 * Get the contents of a config file.
+	 *
+	 * @param string $filename
+	 *
+	 * @return false|array
+	 */
+	public function get_config( string $filename ) {
+		$filepath = KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
 
-		return $config;
+		if ( ! file_exists( $filepath ) ) {
+			return false;
+		}
+
+		return require_once KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
 	}
 }
