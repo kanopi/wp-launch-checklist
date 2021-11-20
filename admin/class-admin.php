@@ -65,7 +65,7 @@ class Admin {
 	public function __construct( $plugin_name, $version ) {
 		$this->plugin_name      = $plugin_name;
 		$this->version          = $version;
-		$this->checklist_config = $this->get_config( 'checklist_items' );
+		$this->checklist_config = $this->get_settings_config_array( 'checklist_items' );
 	}
 
 	/**

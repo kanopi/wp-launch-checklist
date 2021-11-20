@@ -52,7 +52,7 @@ define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'Kanopi Launch Checklist' );
 /**
  * Plugin options table settings slug.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_SLUG', 'kanopi-launch-checklist' );
+define( 'KANOPI_LAUNCH_CHECKLIST_SLUG', 'kanopi_launch_checklist' );
 
 /**
  * The code that runs during plugin activation.

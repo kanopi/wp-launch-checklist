@@ -1,0 +1,20 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.kanopi_launch_checklist .progress {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	margin-bottom: 3rem;
+}
+
+.kanopi_launch_checklist label[for="progress-summary"] {
+	padding-top: 1rem;
+	align-self: flex-end;
+}
+
+.kanopi_launch_checklist th {
+	display: none;
+}

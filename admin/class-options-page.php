@@ -19,9 +19,9 @@ class Options_Page {
 	public function initialize_options() {
 		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
 
-		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config' );
+		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config', array() );
 
-		if ( empty( $checklist_data ) ) {
+		if ( empty( $checklist_data ) || ! is_array( $checklist_data ) ) {
 			return;
 		}
 
@@ -29,7 +29,7 @@ class Options_Page {
 			add_settings_section(
 				$checklist_group['group_slug'],
 				$checklist_group['group_name'],
-				[ $this, 'settings_section_callback' ],
+				'',
 				KANOPI_LAUNCH_CHECKLIST_SLUG
 			);
 
@@ -39,7 +39,8 @@ class Options_Page {
 					$field['title'],
 					[ $this, 'settings_field_callback' ],
 					KANOPI_LAUNCH_CHECKLIST_SLUG,
-					$checklist_group['group_slug']
+					$checklist_group['group_slug'],
+					$field,
 				);
 			}
 		}
@@ -48,73 +49,8 @@ class Options_Page {
 	}
 
 
-	public function settings_section_callback() {
-		require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings-section.php';
-	}
-
-
-	public function settings_field_callback() {
-		require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings-fields.php';
-	}
-
-	/**
-	 * Prints out all settings sections added to a particular settings page
-	 *
-	 * Part of the Settings API. Use this in a settings page callback function
-	 * to output all the sections and fields that were added to that $page with
-	 * add_settings_section() and add_settings_field()
-	 *
-	 * @global array $wp_settings_sections Storage array of all settings sections added to admin pages.
-	 * @global array $wp_settings_fields Storage array of settings fields and info about their pages/sections.
-	 * @since 2.7.0
-	 *
-	 * @param string $page The slug name of the page whose settings sections you want to output.
-	 */
-	protected function do_settings_sections_fields( $page ) {
-		global $wp_settings_sections, $wp_settings_fields;
-
-		if ( ! isset( $wp_settings_sections[ $page ] ) ) {
-			return;
-		}
-
-		foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
-			if ( $section['title'] ) {
-				echo "<h2>{$section['title']}</h2>\n";
-			}
-
-			if ( $section['callback'] ) {
-				call_user_func( $section['callback'], $section );
-			}
-
-			if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
-				continue;
-			}
-
-			$this->do_settings_fields( $page, $section['id'] );
-		}
-	}
-
-
-	protected function do_settings_fields( $page, $section_id ) {
-		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config' );
-
-		if ( empty( $checklist_data ) ) {
-			return;
-		}
-
-		foreach( $checklist_data as $checklist_group ) {
-			foreach( $checklist_group[ 'items' ] as $field ) {
-				?>
-				<div class="field-group">
-					<label for="<?php echo esc_attr( $field['name'] ) ?>">
-						<input class="launch-checklist-item" id="<?php echo esc_attr( $field['name'] ) ?>" type="checkbox" name="<?php echo esc_attr( $field['name'] ) ?>" <?php checked( false ); ?> value="1">
-						<?php echo esc_html( $field['label'] ); ?>
-					</label>
-				</div>
-				<?php
-			}
-		}
-
+	public function settings_field_callback( $args ) {
+		echo load_template( KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings-fields.php', false, $args );
 	}
 
 }
