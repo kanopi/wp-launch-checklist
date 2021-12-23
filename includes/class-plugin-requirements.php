@@ -216,7 +216,7 @@ class Plugin_Requirements {
 		new Admin_Notice(
 			sprintf(
 			// translators: Plugin name, Required PHP version, and Current PHP version.
-				__( '%1$s requires PHP version %2$s +. You are running version %3$s . Please discuss upgrade options with your hosting provider . WordPress recommends PHP version 7+.', 'certent-geo' ),
+				__( '%1$s requires PHP version %2$s +. You are running version %3$s . Please discuss upgrade options with your hosting provider . WordPress recommends PHP version 7+.', 'kanopi' ),
 				$this->plugin_name,
 				$this->php_version,
 				$this->php_server_version
@@ -233,7 +233,7 @@ class Plugin_Requirements {
 		new Admin_Notice(
 			sprintf(
 			// translators: Plugin name, Required WordPress version, and Current WordPress version.
-				__( '%1$s requires WP version %2$s+. You are running WordPress version %3$s. Please upgrade and reactivate.', 'certent-geo' ),
+				__( '%1$s requires WP version %2$s+. You are running WordPress version %3$s. Please upgrade and reactivate.', 'kanopi' ),
 				$this->plugin_name,
 				$this->wp_version,
 				$this->wp_server_version
