@@ -91,13 +91,17 @@ trait Config {
 			return $data;
 		}
 
+		$data['group_name'] = __( 'Accessibility', 'kanopi' );
+		$data['group_id'] = 'accessibility';
+		$data['group_desc'] = 'Accessibility checklist items';
+
+
 		// format the accessibility config array to the same format
 		// as the plugin's checklist_items.php config file so we can
 		// combine it with that arry for db storage.
-		foreach ( $endpoint_data as $item ) {
-
+		foreach ( $endpoint_data as $key => $value ) {
+			//$data[]
 		}
 
 	}
-
 }
