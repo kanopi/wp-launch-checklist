@@ -10,11 +10,45 @@
 	margin-bottom: 3rem;
 }
 
+.kanopi_launch_checklist h2 {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	line-height: 1;
+}
+
 .kanopi_launch_checklist label[for="progress-summary"] {
 	padding-top: 1rem;
 	align-self: flex-end;
 }
 
-.kanopi_launch_checklist th {
+.checklist-settings-wrapper {
+	display: grid;
+	grid-template-columns: 225px auto;
+}
+
+.checklist-settings-sections {
+	background-color: #fff;
+	padding: 1rem;
+}
+
+.checklist-settings-sections-tabs a {
+	display: block;
+	text-decoration: none;
+	color: #999;
+	padding: 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 1px;
+}
+
+.checklist-settings-sections-tabs a.active,
+.checklist-settings-sections-tabs a:hover {
+	background: #fff;
+}
+
+.checklist-settings-section {
 	display: none;
+}
+
+.checklist-settings-section.active {
+	display: block;
 }

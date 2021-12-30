@@ -85,23 +85,30 @@ trait Config {
 			return $data;
 		}
 
-		$endpoint_data = wp_list_pluck( json_decode( $response_body ), 'tasks', 'wcag' );
+		$endpoint_data = wp_list_pluck( json_decode( $response_body ), 'tasks', 'checkboxId' );
 
 		if ( empty( $endpoint_data ) ) {
 			return $data;
 		}
 
 		$data['group_name'] = __( 'Accessibility', 'kanopi' );
-		$data['group_id'] = 'accessibility';
-		$data['group_desc'] = 'Accessibility checklist items';
+		$data['group_id']   = 'accessibility';
+		$data['group_desc'] = __( 'Accessibility checklist items', 'kanopi' );
 
 
 		// format the accessibility config array to the same format
 		// as the plugin's checklist_items.php config file so we can
 		// combine it with that arry for db storage.
-		foreach ( $endpoint_data as $key => $value ) {
-			//$data[]
+		foreach ( $endpoint_data as $key => $items ) {
+			foreach ( $items as $index => $obj ) {
+				$data['tasks'][] = [
+					'name'        => $obj->checkboxId,
+					'label'       => $obj->title,
+					'description' => sprintf( '<h4>%s</h4><a href="%s">%s</a>', $obj->description, $obj->url, $obj->wcag ),
+				];
+			}
 		}
 
+		return $data;
 	}
 }
