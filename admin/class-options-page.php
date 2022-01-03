@@ -109,6 +109,9 @@ class Options_Page {
 					?>
 
 					<div id="<?php echo esc_attr( $section['id'] ); ?>" class="checklist-settings-section<?php echo esc_attr( $class ); ?>">
+						<h2>
+							<?php echo esc_html( $section['title'] ); ?>
+						</h2>
 						<?php $this->do_settings_fields( $page, $section['id'] ); ?>
 					</div>
 

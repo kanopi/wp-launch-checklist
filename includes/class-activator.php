@@ -46,6 +46,7 @@ class Activator {
 	public function activate() {
 		$this->checklist_config     = $this->get_settings_config_array( 'checklist_items' );
 		$this->accessibility_config = $this->get_accessibility_project_checklist_config();
+		$this->checklist_config[]   = $this->accessibility_config;
 		$this->maybe_insert_checklist_config();
 	}
 

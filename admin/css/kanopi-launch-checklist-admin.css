@@ -49,6 +49,11 @@
 	display: none;
 }
 
+.checklist-settings-section p {
+	margin: 5px 0 1.2rem 0;
+}
+
 .checklist-settings-section.active {
 	display: block;
 }
+

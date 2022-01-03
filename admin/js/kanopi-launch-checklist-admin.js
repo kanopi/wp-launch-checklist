@@ -29,4 +29,29 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	$( function () {
+		$( '.checklist-settings-sections-tabs a' ).on( 'click', function ( e ) {
+			e.preventDefault();
+
+			let $this   = $( this );
+			let $target = $this.attr( 'href' ).replace( '#', '' );
+			console.log( $target );
+
+			$this
+				.parent()
+				.find( 'a' )
+				.removeClass( 'active' )
+
+			$( '.checklist-settings-section' )
+				.removeClass( 'active' )
+				.filter( function () {
+					return $target === $(this).attr( 'id' );
+				} )
+				.addClass( 'active' );
+
+			$this.addClass( 'active' );
+
+		} );
+	} );
+
 })( jQuery );

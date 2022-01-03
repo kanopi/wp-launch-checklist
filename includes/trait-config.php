@@ -41,7 +41,7 @@ trait Config {
 	public function get_accessibility_project_checklist_config( bool $force = false ) : array {
 		$transient_name = 'klc_accessibility_config';
 
-		//if ( false === ( $data = get_transient( $transient_name ) ) || true === $force ) {
+		if ( false === ( $data = get_transient( $transient_name ) ) || true === $force ) {
 
 			// Data for transient.
 			if ( empty( $this->endpoint_url ) ) {
@@ -51,9 +51,9 @@ trait Config {
 			$data = $this->get_config_data_from_endpoint();
 
 			// Store in transient for next time.
-			//set_transient( $transient_name, $data, MONTH_IN_SECONDS );
+			set_transient( $transient_name, $data, MONTH_IN_SECONDS );
 
-		//}
+		}
 
 		return $data;
 	}

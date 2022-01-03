@@ -86,14 +86,16 @@ class Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_style(
-			$this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'css/kanopi-launch-checklist-admin.css',
-			[],
-			$this->version,
-			'all'
-		);
+		global $current_screen;
+		if ( is_launch_checklist_option_page() ) {
+			wp_enqueue_style(
+				$this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'css/kanopi-launch-checklist-admin.css',
+				[],
+				$this->version,
+				'all'
+			);
+		}
 
 	}
 

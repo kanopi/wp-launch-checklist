@@ -32,3 +32,9 @@ function get_kanopi_launch_checklist_percent_complete() : int {
 	return 0;
 }
 
+function is_launch_checklist_option_page() {
+	global $current_screen;
+
+	return ! empty( $current_screen->id ) && 'toplevel_page_kanopi_launch_checklist' === $current_screen->id;
+}
+

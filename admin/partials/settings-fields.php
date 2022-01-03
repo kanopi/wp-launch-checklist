@@ -8,4 +8,6 @@
 	>
 	<?php echo esc_html( $args['label'] ); ?>
 </label>
-<p><?php echo esc_html( $args['description'] ); ?></p>
+<?php if ( ! empty( $args['description'] ) ) : ?>
+	<p><?php echo wp_kses_post( $args['description'] ); ?></p>
+<?php endif; ?>
