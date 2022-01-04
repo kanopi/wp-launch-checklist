@@ -83,7 +83,12 @@ return [
 			[
 				'name'        => 'xml_sitemap',
 				'label'       => 'XML Sitemap',
-				'description' => 'Check that the XML sitemap module is enabled and a sitemap has been created.',
+				'description' => 'Check that the XML sitemap setting is enabled and a sitemap has been created.',
+			],
+			[
+				'name'        => 'seo_warnings',
+				'label'       => 'SEO Warnings',
+				'description' => 'Verify that any warnings from WordPress SEO, etc. are addressed and/or noted for the client.',
 			],
 			[
 				'name'        => 'title_meta_tags',
