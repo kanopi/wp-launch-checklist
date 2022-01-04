@@ -8,7 +8,7 @@
 		value="1"
 		<?php checked( 1, get_kanopi_launch_checklist_option( $args['name'] ) ); ?>
 	>
-	<?php echo esc_html( $args['label'] ); ?>
+	<?php echo wp_kses_post( $args['label'] ); ?>
 </label>
 <?php if ( ! empty( $args['description'] ) ) : ?>
 	<p><?php echo wp_kses_post( $args['description'] ); ?></p>
