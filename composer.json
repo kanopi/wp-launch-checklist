@@ -11,6 +11,9 @@
     ],
     "require": {},
     "autoload": {
+      "psr-0": {
+        "Config": "includes"
+      },
       "classmap": [
         "admin",
         "includes"

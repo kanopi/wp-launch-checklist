@@ -35,7 +35,7 @@ class Admin_Notice {
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct( $notice, $type = 'error' ) {
+	public function __construct( string $notice, string $type = 'error' ) {
 		$this->notice = $notice;
 		$this->type   = $type;
 		$this->display_notice();

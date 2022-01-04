@@ -24,36 +24,48 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  */
 class Admin {
 
+	use Config;
+
 	/**
 	 * The ID of this plugin.
 	 *
+	 * @var      string $plugin_name The ID of this plugin.
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private string $plugin_name;
 
 	/**
 	 * The version of this plugin.
 	 *
+	 * @var      string $version The current version of this plugin.
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
 	 */
-	private $version;
+	private string $version;
+
+
+	/**
+	 * The checklist configuration array.
+	 *
+	 * @var      array $checklist_config The checklist configuration array.
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private array $checklist_config;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
+	 * @param string $plugin_name The name of this plugin.
+	 * @param string $version     The version of this plugin.
+	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
-
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
-
+		$this->plugin_name      = $plugin_name;
+		$this->version          = $version;
+		$this->checklist_config = $this->get_settings_config_array( 'checklist_items' );
 	}
 
 	/**
@@ -74,8 +86,16 @@ class Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/kanopi-launch-checklist-admin.css', array(), $this->version, 'all' );
+		global $current_screen;
+		if ( is_launch_checklist_option_page() ) {
+			wp_enqueue_style(
+				$this->plugin_name,
+				plugin_dir_url( __FILE__ ) . 'css/kanopi-launch-checklist-admin.css',
+				[],
+				$this->version,
+				'all'
+			);
+		}
 
 	}
 
@@ -98,7 +118,13 @@ class Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kanopi-launch-checklist-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script(
+			$this->plugin_name,
+			plugin_dir_url( __FILE__ ) . 'js/kanopi-launch-checklist-admin.js',
+			[ 'jquery' ],
+			$this->version,
+			false
+		);
 
 	}
 
