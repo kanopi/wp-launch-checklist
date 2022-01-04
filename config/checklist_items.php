@@ -323,13 +323,8 @@ return [
 		'tasks'       => [
 			[
 				'name'        => 'dns_ttl',
-				'label'       => '',
-				'description' => '',
-			],
-			[
-				'name'        => 'site_email',
-				'label'       => '',
-				'description' => '',
+				'label'       => 'DNS TTL',
+				'description' => 'Reduce DNS TTL to 300s (5 min) 24 hours prior to site launch.',
 			],
 			[
 				'name'        => 'cron_jobs',

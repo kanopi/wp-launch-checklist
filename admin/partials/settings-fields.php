@@ -1,3 +1,5 @@
+<?php namespace Kanopi\Kanopi_Launch_Checklist; ?>
+
 <label for="<?php echo esc_attr( $args['name'] ); ?>">
 	<input
 		id="<?php echo esc_attr( $args['name'] ); ?>"

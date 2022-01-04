@@ -1,4 +1,8 @@
+<?php namespace Kanopi\Kanopi_Launch_Checklist; ?>
+
 <div class="progress">
-	<input id="progress-summary" type="range" min="0" value="12">
-	<label for="progress-summary">Completed: <span class="num-checked">x</span> of <span class="total-checklist-items">y</span> (<span class="percent-complete"><?php echo absint( get_kanopi_launch_checklist_percent_complete() ); ?></span>%)</label>
+	<input id="progress-summary" type="range" min="0" max="100" value="<?php echo esc_attr( get_kanopi_launch_checklist_percent_complete() ); ?>" disabled="disabled">
+	<label for="progress-summary">
+		<?php echo wp_kses_post( launch_checklist_percent_complete_overview() ); ?>
+	</label>
 </div>

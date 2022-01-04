@@ -34,7 +34,7 @@
 .checklist-settings-sections-tabs a {
 	display: block;
 	text-decoration: none;
-	color: #999;
+	color: #000;
 	padding: 1rem;
 	font-size: 1.1rem;
 	margin-bottom: 1px;
@@ -47,6 +47,15 @@
 
 .checklist-settings-section {
 	display: none;
+}
+
+.checklist-settings-section div {
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #ddd;
+}
+
+.checklist-settings-section div:last-of-type {
+	border: none;
 }
 
 .checklist-settings-section p {
