@@ -32,10 +32,10 @@
 	$( function () {
 		$( '.checklist-settings-sections-tabs a' ).on( 'click', function ( e ) {
 			e.preventDefault();
+			console.log( 'clicked' );
 
 			let $this   = $( this );
 			let $target = $this.attr( 'href' ).replace( '#', '' );
-			console.log( $target );
 
 			$this
 				.parent()
@@ -51,7 +51,15 @@
 
 			$this.addClass( 'active' );
 
+			location.hash = $target;
 		} );
+
+		let hash = location.hash;
+
+		if ( hash ) {
+			$( '[href="' + hash + '"]' ).trigger( 'click' );
+		}
+
 	} );
 
 })( jQuery );
