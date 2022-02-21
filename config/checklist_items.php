@@ -6,8 +6,8 @@
 return [
 	[
 		'group_name'       => __( 'General Settings', 'kanopi' ),
-		'group_slug' => 'general',
-		'description' => __( 'General settings for the site.', 'kanopi' ),
+		'group_slug' => 'general-settings',
+		'group_desc' => __( 'General settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'site_admin_email',
@@ -28,8 +28,8 @@ return [
 	],
 	[
 		'group_name'       => __( 'Browser Checks', 'kanopi' ),
-		'group_slug'       => 'browser_checks',
-		'description' => __( 'Verify the look and functionality across devices.', 'kanopi' ),
+		'group_slug'       => 'browser-checks',
+		'group_desc' => __( 'Verify the look and functionality across devices.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'desktop_browser',
@@ -46,7 +46,7 @@ return [
 	[
 		'group_name'       => __( 'Forms', 'kanopi' ),
 		'group_slug'       => 'forms',
-		'description' => __( 'Verify forms work as expected.', 'kanopi' ),
+		'group_desc' => __( 'Verify forms work as expected.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'email',
@@ -68,7 +68,7 @@ return [
 	[
 		'group_name'       => __( 'SEO', 'kanopi' ),
 		'group_slug'       => 'seo',
-		'description' => __( 'SEO settings for the site.', 'kanopi' ),
+		'group_desc' => __( 'SEO settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'analytics',
@@ -119,8 +119,8 @@ return [
 	],
 	[
 		'group_name'       => __( 'User Permissions', 'kanopi' ),
-		'group_slug'       => 'user_permissions',
-		'description' => __( 'User Permission settings for the site.', 'kanopi' ),
+		'group_slug'       => 'user-permissions',
+		'group_desc' => __( 'User Permission settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'admin_users',
@@ -147,7 +147,7 @@ return [
 	[
 		'group_name'       => __( 'Content', 'kanopi' ),
 		'group_slug'       => 'content',
-		'description' => __( 'Content settings for the site.', 'kanopi' ),
+		'group_desc' => __( 'Content settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'content_redirects',
@@ -168,8 +168,8 @@ return [
 	],
 	[
 		'group_name'       => __( 'GDPR and Privacy', 'kanopi' ),
-		'group_slug'       => 'gdpr_privacy',
-		'description' => __( 'GDPR and Privacy settings for the site.', 'kanopi' ),
+		'group_slug'       => 'gdpr-and-privacy',
+		'group_desc' => __( 'GDPR and Privacy settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'approved_language_notification',
@@ -195,8 +195,8 @@ return [
 	],
 	[
 		'group_name'       => __( 'Performance and Security', 'kanopi' ),
-		'group_slug'       => 'performance_security',
-		'description' => __( 'Performance and Security settings for the site.', 'kanopi' ),
+		'group_slug'       => 'performance-and-security',
+		'group_desc' => __( 'Performance and Security settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'page_caching',
@@ -238,7 +238,7 @@ return [
 	[
 		'group_name'       => __( 'Database', 'kanopi' ),
 		'group_slug'       => 'database',
-		'description' => __( 'Database settings for the site.', 'kanopi' ),
+		'group_desc' => __( 'Database settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'backups',
@@ -250,7 +250,7 @@ return [
 	[
 		'group_name'       => __( 'Theme', 'kanopi' ),
 		'group_slug'       => 'theme',
-		'description' => __( 'Theme settings for the site.', 'kanopi' ),
+		'group_desc' => __( 'Theme settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'responsive_design',
@@ -276,8 +276,8 @@ return [
 	],
 	[
 		'group_name'       => __( 'Accessibility Overview', 'kanopi' ),
-		'group_slug'       => 'accessibility_overview',
-		'description' => __( 'Accessibility settings for the site.', 'kanopi' ),
+		'group_slug'       => 'accessibility-overview',
+		'group_desc' => __( 'Accessibility settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'lighthouse',
@@ -324,7 +324,7 @@ return [
 	[
 		'group_name'       => __( 'Miscellaneous', 'kanopi' ),
 		'group_slug'       => 'miscellaneous',
-		'description' => __( 'Miscellaneous settings for the site.', 'kanopi' ),
+		'group_desc' => __( 'Miscellaneous settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'dns_ttl',

@@ -67,60 +67,7 @@ class Options_Page {
 	 * @param string $page The slug name of the page whose settings sections you want to output.
 	 */
 	protected function do_settings_sections( $page ) {
-		?>
-		<div class="checklist-settings-wrapper">
-			<?php
-			global $wp_settings_sections, $wp_settings_fields;
-
-			if ( ! isset( $wp_settings_sections[ $page ] ) ) {
-				return;
-			}
-			?>
-
-			<div class="checklist-settings-sections-tabs">
-				<?php
-				$i = 0;
-				foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
-					if ( $section['title'] ) {
-						$class = ( 0 === $i ) ? 'active' : '';
-						?>
-						<a href="#<?php echo esc_attr( $section['id'] ); ?>" class="<?php echo esc_attr( $class ); ?>" role="tab">
-							<?php echo esc_html( $section['title'] ); ?>
-						</a>
-						<?php
-					}
-					$i++;
-				}
-				?>
-			</div>
-			<div class="checklist-settings-sections">
-				<?php
-				$i = 0;
-				foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
-					if ( $section['callback'] ) {
-						call_user_func( $section['callback'], $section );
-					}
-
-					if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
-						continue;
-					}
-
-					$class = ( 0 === $i ) ? ' active' : '';
-					?>
-
-					<div id="<?php echo esc_attr( $section['id'] ); ?>" class="checklist-settings-section<?php echo esc_attr( $class ); ?>">
-						<h2>
-							<?php echo esc_html( $section['title'] ); ?>
-						</h2>
-						<?php $this->do_settings_fields( $page, $section['id'] ); ?>
-					</div>
-
-					<?php $i++;
-				}
-				?>
-			</div>
-		</div>
-		<?php
+		load_template( KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings-sections.php', true, [ 'page' => $page, 'options_page' => $this ] );
 	}
 
 	/**
