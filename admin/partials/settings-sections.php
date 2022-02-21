@@ -42,7 +42,7 @@
 				<h2>
 					<?php echo esc_html( $section['title'] ); ?>
 				</h2>
-				<?php $args['options_page']->do_settings_fields( $args['page'], sanitize_title( $section['title'] ) ); ?>
+				<?php $args['options_page']->do_checklist_settings_fields( $args['page'], sanitize_title( $section['title'] ) ); ?>
 			</div>
 
 			<?php $i++;

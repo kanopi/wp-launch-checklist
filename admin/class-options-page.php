@@ -66,7 +66,7 @@ class Options_Page {
 	 *
 	 * @param string $page The slug name of the page whose settings sections you want to output.
 	 */
-	protected function do_settings_sections( $page ) {
+	protected function do_checklist_settings_sections( $page ) {
 		load_template( KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings-sections.php', true, [ 'page' => $page, 'options_page' => $this ] );
 	}
 
@@ -84,7 +84,7 @@ class Options_Page {
 	 * @param string $page Slug title of the admin page whose settings fields you want to show.
 	 * @param string $section Slug title of the settings section whose fields you want to show.
 	 */
-	function do_settings_fields( $page, $section ) {
+	function do_checklist_settings_fields( $page, $section ) {
 		global $wp_settings_fields;
 
 		if ( ! isset( $wp_settings_fields[ $page ][ $section ] ) ) {
