@@ -10,14 +10,20 @@ class Options_Page {
 
 	public function add_options_page() {
 		add_menu_page( 'Launch Checklist', 'Launch Checklist', 'manage_options', KANOPI_LAUNCH_CHECKLIST_SLUG, [ $this, 'options_page_layout' ] );
+		add_submenu_page( KANOPI_LAUNCH_CHECKLIST_SLUG, 'Settings', 'Settings', 'manage_options', KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings', [ $this, 'options_page_settings_layout' ] );
 	}
 
 	public function options_page_layout() {
 		require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/layout.php';
 	}
 
+	public function options_page_settings_layout() {
+		require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials/settings.php';
+	}
+
 	public function initialize_options() {
 		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
+		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
 
 		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config', array() );
 
