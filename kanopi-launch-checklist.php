@@ -45,6 +45,11 @@ define( 'KANOPI_LAUNCH_CHECKLIST_VERSION', '1.0.0' );
 define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
+ * Root path to the plugin files.
+ */
+define( 'KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS', trailingslashit( KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials' ) );
+
+/**
  * Plugin name.
  */
 define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'Kanopi Launch Checklist' );
