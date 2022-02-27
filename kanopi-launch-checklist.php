@@ -79,8 +79,19 @@ function deactivate_kanopi_launch_checklist() {
 	$deactivator->deactivate();
 }
 
+/**
+ * The code that runs during plugin uninstall (deactivation and deletion).
+ * This action is documented in includes/class-kanopi-launch-checklist-uninstaller.php
+ */
+function uninstall_kanopi_launch_checklist() {
+	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-uninstaller.php';
+	$uninstaller = new Uninstaller;
+	$uninstaller->deactivate();
+}
+
 register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_kanopi_launch_checklist' );
 register_deactivation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\deactivate_kanopi_launch_checklist' );
+register_uninstall_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\uninstall_kanopi_launch_checklist' );
 
 /**
  * The core plugin class that is used to define internationalization,

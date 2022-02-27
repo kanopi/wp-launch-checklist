@@ -4,8 +4,11 @@ namespace Kanopi\Kanopi_Launch_Checklist;
 
 class Options_Page {
 
+	use Config;
+
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'add_options_page' ] );
+		add_filter( 'wp_redirect', [ $this, 'redirect_to_checklist_group_tab' ] );
 	}
 
 	public function add_options_page() {
@@ -24,14 +27,14 @@ class Options_Page {
 	public function initialize_options() {
 		// Checklist Items.
 		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
-		$this->setup_checklist_data( $checklist_data );
+		$this->setup_checklist_items();
 
 		// Checklist Settings Page.
-		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
-		$this->setup_checklist_settings( $checklist_settings );
+		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings', KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+		$this->setup_checklist_settings();
 	}
 
-	protected function setup_checklist_data( $checklist_data )  {
+	protected function setup_checklist_items()  {
 		$checklist_data = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config', [] );
 		if ( empty( $checklist_data ) || ! is_array( $checklist_data ) ) {
 			return;
@@ -48,7 +51,7 @@ class Options_Page {
 			foreach( $checklist_group[ 'tasks' ] as $field ) {
 				add_settings_field(
 					$field['name'],
-					$field['title'],
+					$field['label'],
 					[ $this, 'settings_item_callback' ],
 					KANOPI_LAUNCH_CHECKLIST_SLUG,
 					$checklist_group['group_slug'],
@@ -63,31 +66,30 @@ class Options_Page {
 	 *
 	 * @return void
 	 */
-	protected function setup_checklist_settings( $checklist_settings ) {
-//		$checklist_settings = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings', [] );
-		$checklist_settings = [
-			[
-				'name' => 'test',
-				'title' => 'test title',
-			],
-		];
+	protected function setup_checklist_settings() {
+		$checklist_settings = $this->get_settings_config_array( 'checklist_settings' );
+		$checklist_settings_values = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+
 		if ( empty( $checklist_settings ) || ! is_array( $checklist_settings ) ) {
 			return;
 		}
 
 		add_settings_section(
 			'launch-checklist-settings',
-			__( 'Launch Checklist Settings', 'kanopi' ),
+			'',
 			'',
 			KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings'
 		);
 
 		foreach( $checklist_settings as $setting ) {
+			if ( isset( $checklist_settings_values[ $setting['name'] ] ) ) {
+				$setting['value'] = $checklist_settings_values[ $setting['name'] ];
+			}
 			add_settings_field(
 				$setting['name'],
 				$setting['title'],
 				[ $this, 'settings_field_callback' ],
-				KANOPI_LAUNCH_CHECKLIST_SLUG,
+				KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings',
 				'launch-checklist-settings',
 				$setting,
 			);
@@ -95,11 +97,13 @@ class Options_Page {
 	}
 
 	public function settings_item_callback( $args ) {
-		echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-items/settings-fields.php', false, $args );
+		echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'form-fields/checkbox-checklist-items.php', false, $args );
 	}
 
 	public function settings_field_callback( $args ) {
-		echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-settings/settings-fields.php', false, $args );
+		if ( file_exists( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php" ) ) {
+			echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php", false, $args );
+		}
 	}
 
 	/**
@@ -154,6 +158,24 @@ class Options_Page {
 
 			<?php
 		}
+	}
+
+
+	/**
+	 * Redirect back to the active tab.
+	 *
+	 * Uses cookies placed in JS.
+	 *
+	 * @param string $location The redirect location.
+	 *
+	 * @return string
+	 */
+	public function redirect_to_checklist_group_tab( $location ) {
+		if ( false !== strpos( $location, KANOPI_LAUNCH_CHECKLIST_SLUG . '&settings-updated=true' ) ) {
+			$location .= "#{$_COOKIE['kanopi-checklist-group-tab']}";
+		}
+
+		return $location;
 	}
 
 }

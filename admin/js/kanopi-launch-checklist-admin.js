@@ -30,9 +30,12 @@
 	 */
 
 	$( function () {
+		if ( ! location.hash ) {
+			document.cookie = "kanopi-checklist-group-tab=";
+		}
+
 		$( '.checklist-settings-sections-tabs a' ).on( 'click', function ( e ) {
 			e.preventDefault();
-			console.log( 'clicked' );
 
 			let $this   = $( this );
 			let $target = $this.attr( 'href' ).replace( '#', '' );
@@ -51,7 +54,8 @@
 
 			$this.addClass( 'active' );
 
-			location.hash = $target;
+			document.cookie = "kanopi-checklist-group-tab=" + $target;
+			history.pushState( {}, '', this.href );
 		} );
 
 		let hash = location.hash;
