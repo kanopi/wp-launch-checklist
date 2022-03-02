@@ -86,7 +86,7 @@ function deactivate_kanopi_launch_checklist() {
 function uninstall_kanopi_launch_checklist() {
 	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-uninstaller.php';
 	$uninstaller = new Uninstaller;
-	$uninstaller->deactivate();
+	$uninstaller->uninstall();
 }
 
 register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_kanopi_launch_checklist' );
@@ -129,4 +129,7 @@ function run_kanopi_launch_checklist() {
 	}
 }
 
+/**
+ * Let's start this party.
+ */
 run_kanopi_launch_checklist();

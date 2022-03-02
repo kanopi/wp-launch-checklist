@@ -15,14 +15,14 @@ namespace Kanopi\Kanopi_Launch_Checklist;
 class Uninstaller {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
+	 * Handle removal of plugin settings.
 	 */
-	public function deactivate() {
-		return;
+	public function uninstall() {
+		$settings = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+		if ( isset( $settings['delete_checklist_settings'] ) && 1 === (int) $settings['delete_checklist_settings'] ) {
+			delete_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
+			delete_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+		}
 	}
 
 }

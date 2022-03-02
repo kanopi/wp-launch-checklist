@@ -4,11 +4,15 @@
  * Checklist items organized by group.
  */
 return [
-	[
+	'general-settings' => [
 		'group_name'       => __( 'General Settings', 'kanopi' ),
-		'group_slug' => 'general-settings',
 		'group_desc' => __( 'General settings for the site.', 'kanopi' ),
 		'tasks'       => [
+			[
+				'name'        => 'site_admin_email',
+				'label'       => 'Site admin email',
+				'description' => 'The from address in automated emails sent during registration and new password requests, and other notifications',
+			],
 			[
 				'name'        => 'site_admin_email',
 				'label'       => 'Site admin email',
@@ -26,9 +30,8 @@ return [
 			],
 		],
 	],
-	[
+	'browser-checks'=> [
 		'group_name'       => __( 'Browser Checks', 'kanopi' ),
-		'group_slug'       => 'browser-checks',
 		'group_desc' => __( 'Verify the look and functionality across devices.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -43,9 +46,8 @@ return [
 			],
 		],
 	],
-	[
+	'forms' => [
 		'group_name'       => __( 'Forms', 'kanopi' ),
-		'group_slug'       => 'forms',
 		'group_desc' => __( 'Verify forms work as expected.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -65,9 +67,8 @@ return [
 			],
 		],
 	],
-	[
+	'seo' => [
 		'group_name'       => __( 'SEO', 'kanopi' ),
-		'group_slug'       => 'seo',
 		'group_desc' => __( 'SEO settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -117,9 +118,8 @@ return [
 			],
 		],
 	],
-	[
+	'user-permissions' => [
 		'group_name'       => __( 'User Permissions', 'kanopi' ),
-		'group_slug'       => 'user-permissions',
 		'group_desc' => __( 'User Permission settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -144,9 +144,8 @@ return [
 			],
 		],
 	],
-	[
+	'content' => [
 		'group_name'       => __( 'Content', 'kanopi' ),
-		'group_slug'       => 'content',
 		'group_desc' => __( 'Content settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -166,9 +165,8 @@ return [
 			],
 		],
 	],
-	[
+	'gdpr-and-privacy' => [
 		'group_name'       => __( 'GDPR and Privacy', 'kanopi' ),
-		'group_slug'       => 'gdpr-and-privacy',
 		'group_desc' => __( 'GDPR and Privacy settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -193,15 +191,19 @@ return [
 			],
 		],
 	],
-	[
+	'performance-and-security' => [
 		'group_name'       => __( 'Performance and Security', 'kanopi' ),
-		'group_slug'       => 'performance-and-security',
 		'group_desc' => __( 'Performance and Security settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
 				'name'        => 'page_caching',
 				'label'       => 'Page caching',
 				'description' => 'Ensure that page caching is enabled.',
+			],
+			[
+				'name'        => 'site_caching',
+				'label'       => 'Site caching',
+				'description' => 'Ensure that memcache, Redis, or similar is enabled.',
 			],
 			[
 				'name'        => 'css_aggregation',
@@ -233,11 +235,20 @@ return [
 				'label'       => 'Proper number of administrator accounts',
 				'description' => 'Ensure that there are only the amount of administrator accounts needed to manage the site. Possibly downgrade or remove those not needed.',
 			],
+			[
+				'name'        => 'cdn',
+				'label'       => 'Enable and configure a CDN if applicable',
+				'description' => 'Consider using the hosts CDN or hooking up another if possible.',
+			],
+			[
+				'name'        => 'transients',
+				'label'       => 'Transient API Usage',
+				'description' => 'Consider using the <a href="https://developer.wordpress.org/apis/handbook/transients/">transients api</a> for better performance.',
+			],
 		],
 	],
-	[
+	'database' => [
 		'group_name'       => __( 'Database', 'kanopi' ),
-		'group_slug'       => 'database',
 		'group_desc' => __( 'Database settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -247,11 +258,20 @@ return [
 			],
 		],
 	],
-	[
+	'theme' => [
 		'group_name'       => __( 'Theme', 'kanopi' ),
-		'group_slug'       => 'theme',
 		'group_desc' => __( 'Theme settings for the site.', 'kanopi' ),
 		'tasks'       => [
+			[
+				'name'        => 'responsive_images',
+				'label'       => 'Responsive images',
+				'description' => 'Make sure the site is using responsive images where applicable.',
+			],
+			[
+				'name'        => 'image_sizes',
+				'label'       => 'Image sizes',
+				'description' => 'Make sure proper image sizes have been created for the theme and are used in code in the correct places, but use sparingly as the WordPress media library can fill up fast.',
+			],
 			[
 				'name'        => 'responsive_design',
 				'label'       => 'Responsive Design',
@@ -261,6 +281,11 @@ return [
 				'name'        => 'custom_js',
 				'label'       => 'Custom Javascript',
 				'description' => 'If there are any custom JS files in the theme verify if they should be added to every page.',
+			],
+			[
+				'name'        => 'unneeded_js',
+				'label'       => 'Unneeded Javascript',
+				'description' => 'Review the theme and make sure all JS is applicable.',
 			],
 			[
 				'name'        => 'theme_structure',
@@ -274,9 +299,8 @@ return [
 			],
 		],
 	],
-	[
-		'group_name'       => __( 'Accessibility Overview', 'kanopi' ),
-		'group_slug'       => 'accessibility-overview',
+	'accessibility' => [
+		'group_name'       => __( 'Accessibility', 'kanopi' ),
 		'group_desc' => __( 'Accessibility settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[
@@ -321,9 +345,8 @@ return [
 			],
 		],
 	],
-	[
+	'miscellaneous' => [
 		'group_name'       => __( 'Miscellaneous', 'kanopi' ),
-		'group_slug'       => 'miscellaneous',
 		'group_desc' => __( 'Miscellaneous settings for the site.', 'kanopi' ),
 		'tasks'       => [
 			[

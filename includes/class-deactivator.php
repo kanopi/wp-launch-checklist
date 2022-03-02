@@ -22,7 +22,7 @@ class Deactivator {
 	 * @since    1.0.0
 	 */
 	public function deactivate() {
-
+		// Any needed deactivation items here.
 	}
 
 }
