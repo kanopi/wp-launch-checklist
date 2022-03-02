@@ -2,7 +2,7 @@
 
 namespace Kanopi\Kanopi_Launch_Checklist;
 
-trait Config {
+class WCAG {
 
 	/**
 	 * Endpoint URL for accessibility options
@@ -11,26 +11,8 @@ trait Config {
 	 */
 	protected string $endpoint_url = 'https://raw.githubusercontent.com/a11yproject/a11yproject.com/main/src/_data/checklists.json';
 
-
 	/**
-	 * Get the contents of a config file.
-	 *
-	 * @param string $filename
-	 *
-	 * @return false|array
-	 */
-	public function get_settings_config_array( string $filename ) {
-		$filepath = KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
-
-		if ( ! file_exists( $filepath ) ) {
-			return false;
-		}
-
-		return include KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
-	}
-
-	/**
-	 * Get the accessibility config data and store it in a transient for later use.
+	 * Get the accessibility checklist items and store it in a transient for later use.
 	 *
 	 * Stored for one month.
 	 *
@@ -38,10 +20,14 @@ trait Config {
 	 *
 	 * @return array
 	 */
-	public function get_accessibility_project_checklist_config( bool $force = false ) : array {
+	public function get_checklist_items( bool $force = false ) : array {
 		$transient_name = 'klc_accessibility_config';
 
-		if ( false === ( $data = get_transient( $transient_name ) ) || true === $force ) {
+		if ( true === $force ) {
+			delete_transient( $transient_name );
+		}
+
+		if ( false === ( $data = get_transient( $transient_name ) ) ) {
 
 			// Data for transient.
 			if ( empty( $this->endpoint_url ) ) {
@@ -91,14 +77,11 @@ trait Config {
 			return $data;
 		}
 
-		$data['group_name'] = __( 'Accessibility', 'kanopi' );
-		$data['group_slug']   = 'accessibility';
-		$data['group_desc'] = __( 'Accessibility checklist items', 'kanopi' );
-
-
-		// format the accessibility config array to the same format
-		// as the plugin's checklist_items.php config file so we can
-		// combine it with that array for db storage.
+		/**
+		 * Format the accessibility config array to the same format
+		 * as the plugin's checklist_items.php file so we can
+		 * combine it with that array for easier display.
+		 */
 		foreach ( $endpoint_data as $key => $items ) {
 			foreach ( $items as $index => $obj ) {
 				$data['tasks'][] = [

@@ -68,5 +68,5 @@
 
 /* Settings page */
 .kanopi_launch_checklist_settings label {
-	display: block;
+	display: inline-block;
 }
