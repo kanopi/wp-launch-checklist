@@ -58,7 +58,7 @@ function is_launch_checklist_option_page() : bool {
  * @return int
  */
 function get_options_count() : int {
-	$options = get_settings_config_array( 'checklist_items' );
+	$options = get_all_checklist_items();
 	$count   = 0;
 
 	if ( ! empty( $options ) ) {
