@@ -125,7 +125,12 @@ return [
 			[
 				'name'        => 'admin_users',
 				'label'       => 'Admin users',
-				'description' => 'Ensure that there is a kanopi admin user account present (or super admin if multisite).',
+				'description' => 'Ensure that there is a admin user account present (or super admin if multisite).',
+			],
+			[
+				'name'        => 'admin_user_password',
+				'label'       => 'Admin user password',
+				'description' => 'Ensure admin user password is complex.',
 			],
 			[
 				'name'        => 'relevant_roles',
