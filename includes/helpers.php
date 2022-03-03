@@ -111,7 +111,7 @@ function launch_checklist_percent_complete_overview() : string {
  *
  * @return false|array
  */
-function get_settings_config_array( string $filename ) : bool|array {
+function get_settings_config_array( string $filename ) : array {
 	$filepath = KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
 
 	if ( ! file_exists( $filepath ) ) {
