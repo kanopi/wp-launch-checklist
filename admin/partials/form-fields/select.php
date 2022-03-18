@@ -1,4 +1,4 @@
-<?php namespace Kanopi\Kanopi_Launch_Checklist; ?>
+<?php namespace WpLaunchChecklist\Launch_Checklist; ?>
 
 <?php if ( isset( $args['label'] ) ) : ?>
 	<label for="<?php echo esc_attr( $args['name'] ); ?>">
@@ -6,7 +6,7 @@
 	</label>
 <?php endif; ?>
 
-<select id="<?php echo esc_attr( $args['name'] ); ?>" name="<?php echo esc_attr( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings[' . $args['name'] . ']' ); ?>">
+<select id="<?php echo esc_attr( $args['name'] ); ?>" name="<?php echo esc_attr( WP_LAUNCH_CHECKLIST_SLUG . '_settings[' . $args['name'] . ']' ); ?>">
 	<?php foreach( $args['options'] as $value => $label ) : ?>
 		<option value="<?php echo esc_attr( $value ); ?>" <?php selected( isset( $args['value'] ) && $value === $args['value'] ); ?>>
 			<?php echo esc_html( $label ); ?>

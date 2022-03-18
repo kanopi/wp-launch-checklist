@@ -1,14 +1,14 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * Get all the checklist items that have values stored.
  *
  * @return array
  */
-function get_kanopi_launch_checklist_values() : array {
-	return get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_values', array() );
+function get_wp_launch_checklist_values() : array {
+	return get_option( WP_LAUNCH_CHECKLIST_SLUG . '_values', array() );
 }
 
 /**
@@ -18,8 +18,8 @@ function get_kanopi_launch_checklist_values() : array {
  *
  * @return int
  */
-function get_kanopi_launch_checklist_option( string $key ) : int {
-	$options = get_kanopi_launch_checklist_values();
+function get_wp_launch_checklist_option(string $key ) : int {
+	$options = get_wp_launch_checklist_values();
 	$value   = 0;
 
 	if ( ! empty( $options ) ) {
@@ -34,7 +34,7 @@ function get_kanopi_launch_checklist_option( string $key ) : int {
  *
  * @return int
  */
-function get_kanopi_launch_checklist_percent_complete() : int {
+function get_wp_launch_checklist_percent_complete() : int {
 	$options_count = get_options_count();
 	$values_count  = get_values_count();
 
@@ -49,7 +49,7 @@ function get_kanopi_launch_checklist_percent_complete() : int {
 function is_launch_checklist_option_page() : bool {
 	global $current_screen;
 
-	return ! empty( $current_screen->id ) && ( false !== strpos( $current_screen->id, 'kanopi_launch_checklist' ) );
+	return ! empty( $current_screen->id ) && ( false !== strpos( $current_screen->id, WP_LAUNCH_CHECKLIST_SLUG ) );
 }
 
 /**
@@ -78,7 +78,7 @@ function get_options_count() : int {
  * @return int
  */
 function get_values_count() : int {
-	$values = get_kanopi_launch_checklist_values();
+	$values = get_wp_launch_checklist_values();
 	$count = 0;
 
 	if ( ! empty( $values ) ) {
@@ -100,7 +100,7 @@ function launch_checklist_percent_complete_overview() : string {
 		'Completed: <span class="num-checked">%d</span> of <span class="total-checklist-items">%d</span> (<span class="percent-complete">%d</span>%%)',
 		get_values_count(),
 		get_options_count(),
-		get_kanopi_launch_checklist_percent_complete()
+		get_wp_launch_checklist_percent_complete()
 	);
 }
 
@@ -112,13 +112,13 @@ function launch_checklist_percent_complete_overview() : string {
  * @return false|array
  */
 function get_settings_config_array( string $filename ) : array {
-	$filepath = KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
+	$filepath = WP_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
 
 	if ( ! file_exists( $filepath ) ) {
 		return false;
 	}
 
-	return include KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
+	return include WP_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
 }
 
 /**

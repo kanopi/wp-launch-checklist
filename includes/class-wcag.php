@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 class WCAG {
 
@@ -56,7 +56,7 @@ class WCAG {
 			[
 				'method'             => 'GET',
 				'timeout'            => 30,
-				'user_agent'         => KANOPI_LAUNCH_CHECKLIST_NAME,
+				'user_agent'         => WP_LAUNCH_CHECKLIST_NAME,
 				'reject_unsafe_urls' => true,
 			]
 		);

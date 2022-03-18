@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * The file that defines the core plugin class
@@ -11,8 +11,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * @link       https://kanopi.com
  * @since      1.0.0
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  */
 
 /**
@@ -25,11 +25,11 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  * @author     Kanopi Studios <support@kanopistudios.com>
  */
-class Kanopi_Launch_Checklist {
+class Launch_Checklist {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -69,8 +69,8 @@ class Kanopi_Launch_Checklist {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		$this->version     = KANOPI_LAUNCH_CHECKLIST_VERSION;
-		$this->plugin_name = KANOPI_LAUNCH_CHECKLIST_SLUG;
+		$this->version     = WP_LAUNCH_CHECKLIST_VERSION;
+		$this->plugin_name = WP_LAUNCH_CHECKLIST_SLUG;
 
 		$this->load_dependencies();
 		$this->set_locale();

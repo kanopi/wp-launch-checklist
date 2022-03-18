@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * The plugin bootstrap file
@@ -12,10 +12,10 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  *
  * @link              https://kanopi.com
  * @since             1.0.0
- * @package           Kanopi_Launch_Checklist
+ * @package           WpLaunchChecklist
  *
  * @wordpress-plugin
- * Plugin Name:       Kanopi Launch Checklist
+ * Plugin Name:       WP Launch Checklist
  * Plugin URI:        https://kanopi.com
  * Description:       Creates an interactive launch checklist.
  * Version:           1.0.0
@@ -23,7 +23,7 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * Author URI:        https://kanopi.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       kanopi-launch-checklist
+ * Text Domain:       wp-launch-checklist
  * Domain Path:       /languages
  */
 
@@ -37,67 +37,67 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_VERSION', '1.0.0' );
+define( 'WP_LAUNCH_CHECKLIST_VERSION', '1.0.0' );
 
 /**
  * Root path to the plugin files.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'WP_LAUNCH_CHECKLIST_ROOT', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
  * Root path to the plugin files.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS', trailingslashit( KANOPI_LAUNCH_CHECKLIST_ROOT . 'admin/partials' ) );
+define( 'WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS', trailingslashit( WP_LAUNCH_CHECKLIST_ROOT . 'admin/partials' ) );
 
 /**
  * Plugin name.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_NAME', 'Kanopi Launch Checklist' );
+define( 'WP_LAUNCH_CHECKLIST_NAME', 'WP Launch Checklist' );
 
 /**
  * Plugin options table settings slug.
  */
-define( 'KANOPI_LAUNCH_CHECKLIST_SLUG', 'kanopi_launch_checklist' );
+define( 'WP_LAUNCH_CHECKLIST_SLUG', 'wp_launch_checklist' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-kanopi-launch-checklist-activator.php
+ * This action is documented in includes/class-wp-launch-checklist-activator.php
  */
-function activate_kanopi_launch_checklist() {
-	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-activator.php';
+function activate_wp_launch_checklist() {
+	require_once WP_LAUNCH_CHECKLIST_ROOT . 'includes/class-activator.php';
 	$activator = new Activator;
 	$activator->activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-kanopi-launch-checklist-deactivator.php
+ * This action is documented in includes/class-wp-launch-checklist-deactivator.php
  */
-function deactivate_kanopi_launch_checklist() {
-	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-deactivator.php';
+function deactivate_wp_launch_checklist() {
+	require_once WP_LAUNCH_CHECKLIST_ROOT . 'includes/class-deactivator.php';
 	$deactivator = new Deactivator;
 	$deactivator->deactivate();
 }
 
 /**
  * The code that runs during plugin uninstall (deactivation and deletion).
- * This action is documented in includes/class-kanopi-launch-checklist-uninstaller.php
+ * This action is documented in includes/class-wp-launch-checklist-uninstaller.php
  */
-function uninstall_kanopi_launch_checklist() {
-	require_once KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-uninstaller.php';
+function uninstall_wp_launch_checklist() {
+	require_once WP_LAUNCH_CHECKLIST_ROOT . 'includes/class-uninstaller.php';
 	$uninstaller = new Uninstaller;
 	$uninstaller->uninstall();
 }
 
-register_activation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\activate_kanopi_launch_checklist' );
-register_deactivation_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\deactivate_kanopi_launch_checklist' );
-register_uninstall_hook( __FILE__, 'Kanopi\Kanopi_Launch_Checklist\uninstall_kanopi_launch_checklist' );
+register_activation_hook( __FILE__, 'WpLaunchChecklist\Launch_Checklist\activate_wp_launch_checklist');
+register_deactivation_hook( __FILE__, 'WpLaunchChecklist\Launch_Checklist\deactivate_wp_launch_checklist');
+register_uninstall_hook( __FILE__, 'WpLaunchChecklist\Launch_Checklist\uninstall_wp_launch_checklist');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-kanopi-launch-checklist.php';
+require WP_LAUNCH_CHECKLIST_ROOT . 'includes/class-wp-launch-checklist.php';
 
 /**
  * Begins execution of the plugin.
@@ -108,12 +108,12 @@ require KANOPI_LAUNCH_CHECKLIST_ROOT . 'includes/class-kanopi-launch-checklist.p
  *
  * @since    1.0.0
  */
-function run_kanopi_launch_checklist() {
-	require_once( KANOPI_LAUNCH_CHECKLIST_ROOT . 'vendor/autoload.php' );
+function run_wp_launch_checklist() {
+	require_once( WP_LAUNCH_CHECKLIST_ROOT . 'vendor/autoload.php' );
 
 	$requirements = new Plugin_Requirements(
 		[
-			'plugin_name'         => KANOPI_LAUNCH_CHECKLIST_NAME,
+			'plugin_name'         => WP_LAUNCH_CHECKLIST_NAME,
 			'php_version'         => '7.4',
 			'wp_version'          => '5.5',
 			'plugin_file'         => __FILE__,
@@ -124,7 +124,7 @@ function run_kanopi_launch_checklist() {
 	);
 
 	if ( $requirements->plugin_requirements_met() ) {
-		$plugin = new Kanopi_Launch_Checklist();
+		$plugin = new Launch_Checklist();
 		$plugin->run();
 	}
 }
@@ -132,4 +132,4 @@ function run_kanopi_launch_checklist() {
 /**
  * Let's start this party.
  */
-run_kanopi_launch_checklist();
+run_wp_launch_checklist();

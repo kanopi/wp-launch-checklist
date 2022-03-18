@@ -22,7 +22,7 @@
  * @link       https://kanopi.com
  * @since      1.0.0
  *
- * @package    Kanopi_Launch_Checklist
+ * @package    WpLaunchChecklist
  */
 
 // If uninstall not called from WordPress, then exit.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * Register all actions and filters for the plugin
@@ -8,8 +8,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * @link       https://kanopi.com
  * @since      1.0.0
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  */
 
 /**
@@ -19,8 +19,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  * @author     Kanopi Studios <support@kanopistudios.com>
  */
 class Loader {

@@ -1,9 +1,9 @@
-<?php namespace Kanopi\Kanopi_Launch_Checklist; ?>
+<?php namespace WpLaunchChecklist\Launch_Checklist; ?>
 
 <input
 	id="<?php echo esc_attr( $args['name'] ); ?>"
 	type="checkbox"
-	name="<?php echo esc_attr( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings[' . $args['name'] . ']' ); ?>"
+	name="<?php echo esc_attr( WP_LAUNCH_CHECKLIST_SLUG . '_settings[' . $args['name'] . ']' ); ?>"
 	value="1"
 	<?php checked( isset( $args['value'] ) && 1 === (int) $args['value'] ); ?>
 >

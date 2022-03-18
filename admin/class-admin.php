@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * The admin-specific functionality of the plugin.
@@ -8,8 +8,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * @link       https://kanopi.com
  * @since      1.0.0
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/admin
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/admin
  */
 
 /**
@@ -18,8 +18,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/admin
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/admin
  * @author     Kanopi Studios <support@kanopistudios.com>
  */
 class Admin {
@@ -88,7 +88,7 @@ class Admin {
 		if ( is_launch_checklist_option_page() ) {
 			wp_enqueue_style(
 				$this->plugin_name,
-				plugin_dir_url( __FILE__ ) . 'css/kanopi-launch-checklist-admin.css',
+				plugin_dir_url( __FILE__ ) . 'css/wp-launch-checklist-admin.css',
 				[],
 				$this->version,
 				'all'
@@ -118,7 +118,7 @@ class Admin {
 
 		wp_enqueue_script(
 			$this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'js/kanopi-launch-checklist-admin.js',
+			plugin_dir_url( __FILE__ ) . 'js/wp-launch-checklist-admin.js',
 			[ 'jquery' ],
 			$this->version,
 			false

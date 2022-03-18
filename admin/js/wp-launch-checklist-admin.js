@@ -31,7 +31,7 @@
 
 	$( function () {
 		if ( ! location.hash ) {
-			document.cookie = "kanopi-checklist-group-tab=";
+			document.cookie = "wp-checklist-group-tab=";
 		}
 
 		$( '.checklist-settings-sections-tabs a' ).on( 'click', function ( e ) {
@@ -54,7 +54,7 @@
 
 			$this.addClass( 'active' );
 
-			document.cookie = "kanopi-checklist-group-tab=" + $target;
+			document.cookie = "wp-checklist-group-tab=" + $target;
 			history.pushState( {}, '', this.href );
 		} );
 

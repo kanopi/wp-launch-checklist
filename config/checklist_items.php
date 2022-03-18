@@ -5,8 +5,8 @@
  */
 return [
 	'general-settings' => [
-		'group_name'       => __( 'General Settings', 'kanopi' ),
-		'group_desc' => __( 'General settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'General Settings', 'wp_launch_checklist' ),
+		'group_desc' => __( 'General settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'site_admin_email',
@@ -31,8 +31,8 @@ return [
 		],
 	],
 	'browser-checks'=> [
-		'group_name'       => __( 'Browser Checks', 'kanopi' ),
-		'group_desc' => __( 'Verify the look and functionality across devices.', 'kanopi' ),
+		'group_name'       => __( 'Browser Checks', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Verify the look and functionality across devices.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'desktop_browser',
@@ -47,8 +47,8 @@ return [
 		],
 	],
 	'forms' => [
-		'group_name'       => __( 'Forms', 'kanopi' ),
-		'group_desc' => __( 'Verify forms work as expected.', 'kanopi' ),
+		'group_name'       => __( 'Forms', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Verify forms work as expected.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'email',
@@ -68,8 +68,8 @@ return [
 		],
 	],
 	'seo' => [
-		'group_name'       => __( 'SEO', 'kanopi' ),
-		'group_desc' => __( 'SEO settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'SEO', 'wp_launch_checklist' ),
+		'group_desc' => __( 'SEO settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'analytics',
@@ -119,8 +119,8 @@ return [
 		],
 	],
 	'user-permissions' => [
-		'group_name'       => __( 'User Permissions', 'kanopi' ),
-		'group_desc' => __( 'User Permission settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'User Permissions', 'wp_launch_checklist' ),
+		'group_desc' => __( 'User Permission settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'admin_users',
@@ -150,8 +150,8 @@ return [
 		],
 	],
 	'content' => [
-		'group_name'       => __( 'Content', 'kanopi' ),
-		'group_desc' => __( 'Content settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Content', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Content settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'content_redirects',
@@ -171,8 +171,8 @@ return [
 		],
 	],
 	'gdpr-and-privacy' => [
-		'group_name'       => __( 'GDPR and Privacy', 'kanopi' ),
-		'group_desc' => __( 'GDPR and Privacy settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'GDPR and Privacy', 'wp_launch_checklist' ),
+		'group_desc' => __( 'GDPR and Privacy settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'approved_language_notification',
@@ -197,8 +197,8 @@ return [
 		],
 	],
 	'performance-and-security' => [
-		'group_name'       => __( 'Performance and Security', 'kanopi' ),
-		'group_desc' => __( 'Performance and Security settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Performance and Security', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Performance and Security settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'page_caching',
@@ -253,8 +253,8 @@ return [
 		],
 	],
 	'database' => [
-		'group_name'       => __( 'Database', 'kanopi' ),
-		'group_desc' => __( 'Database settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Database', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Database settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'backups',
@@ -264,8 +264,8 @@ return [
 		],
 	],
 	'theme' => [
-		'group_name'       => __( 'Theme', 'kanopi' ),
-		'group_desc' => __( 'Theme settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Theme', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Theme settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'responsive_images',
@@ -305,8 +305,8 @@ return [
 		],
 	],
 	'accessibility' => [
-		'group_name'       => __( 'Accessibility', 'kanopi' ),
-		'group_desc' => __( 'Accessibility settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Accessibility', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Accessibility settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'lighthouse',
@@ -351,8 +351,8 @@ return [
 		],
 	],
 	'miscellaneous' => [
-		'group_name'       => __( 'Miscellaneous', 'kanopi' ),
-		'group_desc' => __( 'Miscellaneous settings for the site.', 'kanopi' ),
+		'group_name'       => __( 'Miscellaneous', 'wp_launch_checklist' ),
+		'group_desc' => __( 'Miscellaneous settings for the site.', 'wp_launch_checklist' ),
 		'tasks'       => [
 			[
 				'name'        => 'dns_ttl',

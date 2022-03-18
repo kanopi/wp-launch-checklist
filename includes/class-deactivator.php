@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * Fired during plugin deactivation.
@@ -8,8 +8,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  * @author     Kanopi Studios <support@kanopistudios.com>
  */
 class Deactivator {
