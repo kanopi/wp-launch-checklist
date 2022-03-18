@@ -18,10 +18,10 @@ This plugin gives you the ability to check off items related to launching a site
   * API call to a WCAG endpoint to obtain accessibility checklist items (these are combined with the accessibility section from the file above).
     * Results of the API call are cached via the [WP Transients API](https://developer.wordpress.org/apis/handbook/transients/) for 30 days by default, but can be refreshed manually using the button on the settings page.
 * There are currently two options pages:
-  * Launch Checklist Page --`/wp-admin/admin.php?page=kanopi_launch_checklist`, broken down into groups by tabs.
-    * Settings stored in `wp_options` under `kanopi_launch_checklist_values`.
-  * Launch Checklist Settings Page -- `/wp-admin/admin.php?page=kanopi_launch_checklist_settings`.
-    * Settings stored in `wp_options` under `kanopi_launch_checklist_settings`.
+  * Launch Checklist Page --`/wp-admin/admin.php?page=wp_launch_checklist`, broken down into groups by tabs.
+    * Settings stored in `wp_options` under `wp_launch_checklist_values`.
+  * Launch Checklist Settings Page -- `/wp-admin/admin.php?page=wp_launch_checklist_settings`.
+    * Settings stored in `wp_options` under `wp_launch_checklist_settings`.
 
 ## How to Use
 * Visit the Plugin Checklist menu on the left side of the WordPress admin.
