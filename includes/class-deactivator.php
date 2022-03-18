@@ -3,16 +3,6 @@
 namespace Kanopi\Kanopi_Launch_Checklist;
 
 /**
- * Fired during plugin deactivation
- *
- * @link       https://kanopi.com
- * @since      1.0.0
- *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
- */
-
-/**
  * Fired during plugin deactivation.
  *
  * This class defines all code necessary to run during the plugin's deactivation.
@@ -32,7 +22,7 @@ class Deactivator {
 	 * @since    1.0.0
 	 */
 	public function deactivate() {
-
+		// Any needed deactivation items here.
 	}
 
 }

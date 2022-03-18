@@ -3,15 +3,6 @@
 namespace Kanopi\Kanopi_Launch_Checklist;
 
 /**
- * Get all the checklist items available.
- *
- * @return array
- */
-function get_kanopi_launch_checklist_options() : array {
-	return get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_config', array() );
-}
-
-/**
  * Get all the checklist items that have values stored.
  *
  * @return array
@@ -58,7 +49,7 @@ function get_kanopi_launch_checklist_percent_complete() : int {
 function is_launch_checklist_option_page() : bool {
 	global $current_screen;
 
-	return ! empty( $current_screen->id ) && 'toplevel_page_kanopi_launch_checklist' === $current_screen->id;
+	return ! empty( $current_screen->id ) && ( false !== strpos( $current_screen->id, 'kanopi_launch_checklist' ) );
 }
 
 /**
@@ -67,7 +58,7 @@ function is_launch_checklist_option_page() : bool {
  * @return int
  */
 function get_options_count() : int {
-	$options = get_kanopi_launch_checklist_options();
+	$options = get_all_checklist_items();
 	$count   = 0;
 
 	if ( ! empty( $options ) ) {
@@ -112,3 +103,43 @@ function launch_checklist_percent_complete_overview() : string {
 		get_kanopi_launch_checklist_percent_complete()
 	);
 }
+
+/**
+ * Get the contents of a config file.
+ *
+ * @param string $filename
+ *
+ * @return false|array
+ */
+function get_settings_config_array( string $filename ) : array {
+	$filepath = KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
+
+	if ( ! file_exists( $filepath ) ) {
+		return false;
+	}
+
+	return include KANOPI_LAUNCH_CHECKLIST_ROOT . "config/{$filename}.php";
+}
+
+/**
+ * Get all checklist items;
+ *
+ * Combine those from the plugin config and
+ * accessibility items obtained from the WCAG API.
+ *
+ * @return array
+ */
+function get_all_checklist_items( $force = false ) : array {
+	$wcag = new WCAG();
+	$accessibility_checklist_items = $wcag->get_checklist_items( $force );
+	$checklist_items = get_settings_config_array( 'checklist_items' );
+
+	if ( isset( $checklist_items['accessibility']['tasks'] ) ) {
+		$checklist_items['accessibility']['tasks'] += $accessibility_checklist_items['tasks'];
+	} else {
+		$checklist_items['accessibility'] = $accessibility_checklist_items;
+	}
+
+	return $checklist_items;
+}
+
