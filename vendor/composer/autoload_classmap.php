@@ -7,12 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Admin' => $baseDir . '/admin/class-admin.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Admin_Notice' => $baseDir . '/includes/class-admin-notice.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Loader' => $baseDir . '/includes/class-loader.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Options_Page' => $baseDir . '/admin/class-options-page.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Plugin_Requirements' => $baseDir . '/includes/class-plugin-requirements.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\Uninstaller' => $baseDir . '/includes/class-uninstaller.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\WCAG' => $baseDir . '/includes/class-wcag.php',
-    'Kanopi\\Kanopi_Launch_Checklist\\i18n' => $baseDir . '/includes/class-i18n.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Admin' => $baseDir . '/admin/class-admin.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Admin_Notice' => $baseDir . '/includes/class-admin-notice.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Loader' => $baseDir . '/includes/class-loader.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Options_Page' => $baseDir . '/admin/class-options-page.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Plugin_Requirements' => $baseDir . '/includes/class-plugin-requirements.php',
+    'WpLaunchChecklist\\Launch_Checklist\\Uninstaller' => $baseDir . '/includes/class-uninstaller.php',
+    'WpLaunchChecklist\\Launch_Checklist\\WCAG' => $baseDir . '/includes/class-wcag.php',
+    'WpLaunchChecklist\\Launch_Checklist\\i18n' => $baseDir . '/includes/class-i18n.php',
 );

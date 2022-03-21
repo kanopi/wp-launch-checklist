@@ -3,20 +3,20 @@
  * included in this file.
  */
 
-.kanopi_launch_checklist .progress {
+.wp_launch_checklist .progress {
 	display: flex;
 	flex-direction: column;
 	align-content: center;
 	margin-bottom: 3rem;
 }
 
-.kanopi_launch_checklist h2 {
+.wp_launch_checklist h2 {
 	margin-top: 0;
 	margin-bottom: 1rem;
 	line-height: 1;
 }
 
-.kanopi_launch_checklist label[for="progress-summary"] {
+.wp_launch_checklist label[for="progress-summary"] {
 	padding-top: 1rem;
 	align-self: flex-end;
 }
@@ -67,6 +67,6 @@
 }
 
 /* Settings page */
-.kanopi_launch_checklist_settings label {
+.wp_launch_checklist_settings label {
 	display: inline-block;
 }

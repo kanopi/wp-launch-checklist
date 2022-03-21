@@ -22,14 +22,14 @@ class ComposerStaticInit783da1ef6aab2e169337631c9fe9c5b1
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Admin' => __DIR__ . '/../..' . '/admin/class-admin.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Admin_Notice' => __DIR__ . '/../..' . '/includes/class-admin-notice.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Loader' => __DIR__ . '/../..' . '/includes/class-loader.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Options_Page' => __DIR__ . '/../..' . '/admin/class-options-page.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Plugin_Requirements' => __DIR__ . '/../..' . '/includes/class-plugin-requirements.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\Uninstaller' => __DIR__ . '/../..' . '/includes/class-uninstaller.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\WCAG' => __DIR__ . '/../..' . '/includes/class-wcag.php',
-        'Kanopi\\Kanopi_Launch_Checklist\\i18n' => __DIR__ . '/../..' . '/includes/class-i18n.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Admin' => __DIR__ . '/../..' . '/admin/class-admin.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Admin_Notice' => __DIR__ . '/../..' . '/includes/class-admin-notice.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Loader' => __DIR__ . '/../..' . '/includes/class-loader.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Options_Page' => __DIR__ . '/../..' . '/admin/class-options-page.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Plugin_Requirements' => __DIR__ . '/../..' . '/includes/class-plugin-requirements.php',
+        'WpLaunchChecklist\\Launch_Checklist\\Uninstaller' => __DIR__ . '/../..' . '/includes/class-uninstaller.php',
+        'WpLaunchChecklist\\Launch_Checklist\\WCAG' => __DIR__ . '/../..' . '/includes/class-wcag.php',
+        'WpLaunchChecklist\\Launch_Checklist\\i18n' => __DIR__ . '/../..' . '/includes/class-i18n.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

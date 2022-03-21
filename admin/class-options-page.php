@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 class Options_Page {
 
@@ -19,8 +19,8 @@ class Options_Page {
 	 * @return void
 	 */
 	public function add_options_page() {
-		add_menu_page( 'Launch Checklist', 'Launch Checklist', 'manage_options', KANOPI_LAUNCH_CHECKLIST_SLUG, [ $this, 'options_page_layout' ] );
-		add_submenu_page( KANOPI_LAUNCH_CHECKLIST_SLUG, 'Settings', 'Settings', 'manage_options', KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings', [ $this, 'options_page_settings_layout' ] );
+		add_menu_page( 'Launch Checklist', 'Launch Checklist', 'manage_options', WP_LAUNCH_CHECKLIST_SLUG, [ $this, 'options_page_layout' ] );
+		add_submenu_page( WP_LAUNCH_CHECKLIST_SLUG, 'Settings', 'Settings', 'manage_options', WP_LAUNCH_CHECKLIST_SLUG . '_settings', [ $this, 'options_page_settings_layout' ] );
 	}
 
 	/**
@@ -29,7 +29,7 @@ class Options_Page {
 	 * @return void
 	 */
 	public function options_page_layout() {
-		require_once KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-items/layout.php';
+		require_once WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-items/layout.php';
 	}
 
 	/**
@@ -38,7 +38,7 @@ class Options_Page {
 	 * @return void
 	 */
 	public function options_page_settings_layout() {
-		require_once KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-settings/settings.php';
+		require_once WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-settings/settings.php';
 	}
 
 	/**
@@ -48,11 +48,11 @@ class Options_Page {
 	 */
 	public function initialize_options() {
 		// Checklist Items.
-		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG, KANOPI_LAUNCH_CHECKLIST_SLUG . '_values' );
+		register_setting( WP_LAUNCH_CHECKLIST_SLUG, WP_LAUNCH_CHECKLIST_SLUG . '_values' );
 		$this->setup_checklist_items();
 
 		// Checklist Settings Page.
-		register_setting( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings', KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+		register_setting( WP_LAUNCH_CHECKLIST_SLUG . '_settings', WP_LAUNCH_CHECKLIST_SLUG . '_settings' );
 		$this->setup_checklist_settings();
 	}
 
@@ -74,7 +74,7 @@ class Options_Page {
 				$group_slug,
 				$checklist_group['group_name'],
 				'',
-				KANOPI_LAUNCH_CHECKLIST_SLUG
+				WP_LAUNCH_CHECKLIST_SLUG
 			);
 
 			foreach( $checklist_group[ 'tasks' ] as $field ) {
@@ -82,7 +82,7 @@ class Options_Page {
 					$field['name'],
 					$field['label'],
 					[ $this, 'settings_item_callback' ],
-					KANOPI_LAUNCH_CHECKLIST_SLUG,
+					WP_LAUNCH_CHECKLIST_SLUG,
 					$group_slug,
 					$field,
 				);
@@ -98,7 +98,7 @@ class Options_Page {
 	 */
 	protected function setup_checklist_settings() {
 		$checklist_settings = get_settings_config_array( 'checklist_settings' );
-		$checklist_settings_values = get_option( KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings' );
+		$checklist_settings_values = get_option( WP_LAUNCH_CHECKLIST_SLUG . '_settings' );
 
 		if ( empty( $checklist_settings ) ) {
 			return;
@@ -108,7 +108,7 @@ class Options_Page {
 			'launch-checklist-settings',
 			'',
 			'',
-			KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings'
+			WP_LAUNCH_CHECKLIST_SLUG . '_settings'
 		);
 
 		foreach( $checklist_settings as $setting ) {
@@ -119,7 +119,7 @@ class Options_Page {
 				$setting['name'],
 				$setting['title'],
 				[ $this, 'settings_field_callback' ],
-				KANOPI_LAUNCH_CHECKLIST_SLUG . '_settings',
+				WP_LAUNCH_CHECKLIST_SLUG . '_settings',
 				'launch-checklist-settings',
 				$setting,
 			);
@@ -134,8 +134,8 @@ class Options_Page {
 	 * @return void
 	 */
 	public function settings_item_callback( $args ) {
-		if ( file_exists( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'form-fields/checkbox-checklist-items.php' ) ) {
-			echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'form-fields/checkbox-checklist-items.php', false, $args );
+		if ( file_exists( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'form-fields/checkbox-checklist-items.php' ) ) {
+			echo load_template( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'form-fields/checkbox-checklist-items.php', false, $args );
 		}
 	}
 
@@ -151,8 +151,8 @@ class Options_Page {
 	 * @return void
 	 */
 	public function settings_field_callback( $args ) {
-		if ( file_exists( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php" ) ) {
-			echo load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php", false, $args );
+		if ( file_exists( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php" ) ) {
+			echo load_template( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php", false, $args );
 		}
 	}
 
@@ -170,7 +170,7 @@ class Options_Page {
 	 * @param string $page The slug name of the page whose settings sections you want to output.
 	 */
 	protected function do_checklist_settings_sections( $page ) {
-		load_template( KANOPI_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-items/settings-sections.php', true, [ 'page' => $page, 'options_page' => $this ] );
+		load_template( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . 'checklist-items/settings-sections.php', true, [ 'page' => $page, 'options_page' => $this ] );
 	}
 
 	/**
@@ -221,8 +221,8 @@ class Options_Page {
 	 * @return string
 	 */
 	public function redirect_to_checklist_group_tab( $location ) {
-		if ( false !== strpos( $location, KANOPI_LAUNCH_CHECKLIST_SLUG . '&settings-updated=true' ) ) {
-			$location .= "#{$_COOKIE['kanopi-checklist-group-tab']}";
+		if ( false !== strpos( $location, WP_LAUNCH_CHECKLIST_SLUG . '&settings-updated=true' ) ) {
+			$location .= "#{$_COOKIE['wp-checklist-group-tab']}";
 		}
 
 		return $location;
@@ -237,17 +237,17 @@ class Options_Page {
 	 */
 	public function refresh_checklist_items() {
 		if ( ! isset( $_POST['refresh_checklist_items'] ) || ! wp_verify_nonce( $_POST['refresh_checklist_items'], 'refresh_checklist_items' ) ) {
-			wp_die( __( 'You should not be doing that!', 'kanopi' ) );
+			wp_die( __( 'You should not be doing that!', WP_LAUNCH_CHECKLIST_SLUG ) );
 		}
 
 		if ( ! isset( $_POST['action'] ) || 'refresh_checklist_items' !== $_POST['action'] ) {
 			return;
 		}
 
-		delete_transient( 'klc_accessibility_config' );
+		delete_transient( 'wp_launch_checklist_accessibility_config' );
 
 		if ( isset( $_POST['_wp_http_referer'] ) ) {
-			wp_safe_redirect( site_url( $_POST[ '_wp_http_referer'] . '&checklist_settings_refreshed=true' . ( isset( $_COOKIE['kanopi-checklist-group-tab'] ) ? "#{$_COOKIE['kanopi-checklist-group-tab']}" : '' ) ) );
+			wp_safe_redirect( site_url( $_POST[ '_wp_http_referer'] . '&checklist_settings_refreshed=true' . ( isset( $_COOKIE['wp-checklist-group-tab'] ) ? "#{$_COOKIE['wp-checklist-group-tab']}" : '' ) ) );
 		}
 
 	}

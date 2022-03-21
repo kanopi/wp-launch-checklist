@@ -1,7 +1,7 @@
 {
-    "name": "kanopi/kanopi-launch-checklist",
+    "name": "kanopi/wp-launch-checklist",
     "description": "Plugin for managing site launches via a checklist interface.",
-    "type": "project",
+    "type": "plugin",
     "license": "GPL",
     "authors": [
         {
@@ -19,7 +19,7 @@
         "includes"
       ],
       "exclude-from-classmap": [
-        "includes/class-kanopi-launch-checklist.php",
+        "includes/class-wp-launch-checklist.php",
         "includes/class-activator.php",
         "includes/class-deactivator.php"
       ],

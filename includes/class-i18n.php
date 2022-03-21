@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * Define the internationalization functionality
@@ -11,8 +11,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * @link       https://kanopi.com
  * @since      1.0.0
  *
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  */
 
 /**
@@ -22,8 +22,8 @@ namespace Kanopi\Kanopi_Launch_Checklist;
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Kanopi_Launch_Checklist
- * @subpackage Kanopi_Launch_Checklist/includes
+ * @package    WpLaunchChecklist
+ * @subpackage WpLaunchChecklist/includes
  * @author     Kanopi Studios <support@kanopistudios.com>
  */
 class i18n {
@@ -37,7 +37,7 @@ class i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'kanopi-launch-checklist',
+			WP_LAUNCH_CHECKLIST_SLUG,
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

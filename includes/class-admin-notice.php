@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanopi\Kanopi_Launch_Checklist;
+namespace WpLaunchChecklist\Launch_Checklist;
 
 /**
  * Class Admin_Notices.
@@ -49,7 +49,7 @@ class Admin_Notice {
 	public function display_notice() {
 		?>
 		<div class="notice notice-<?php echo esc_attr( $this->type ); ?> is-dismissible">
-			<p><?php esc_html_e( sprintf( '%s', $this->notice ), 'kanopi-launch-checklist' ); ?></p>
+			<p><?php esc_html_e( sprintf( '%s', $this->notice ), WP_LAUNCH_CHECKLIST_SLUG ); ?></p>
 		</div>
 		<?php
 	}
