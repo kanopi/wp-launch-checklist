@@ -1,4 +1,4 @@
-=== WP Launch Checklist ===
+=== Launch Checklist ===
 Contributors: kanopi
 Tags: launch, pre-launch, checklist
 Requires at least: 5.0
