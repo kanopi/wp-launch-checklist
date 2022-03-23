@@ -151,8 +151,18 @@ class Options_Page {
 	 * @return void
 	 */
 	public function settings_field_callback( $args ) {
-		if ( file_exists( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php" ) ) {
-			echo load_template( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$args['type']}.php", false, $args );
+		$field_type = $args['type'];
+		// This array matches the file names without extensions in "admin/partials/form-fields".
+		$allowed_types = [
+			'checkbox',
+			'checkbox-checklist-items',
+			'select',
+			'text',
+		];
+		if (in_array($field_type, $allowed_types)) {
+			if ( file_exists( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$field_type}.php" ) ) {
+				echo load_template( WP_LAUNCH_CHECKLIST_TEMPLATE_PARTIALS . "form-fields/{$field_type}.php", false, $args );
+			}
 		}
 	}
 
