@@ -29,6 +29,7 @@ You can modify `checklist_items.php` to contain the items you need.  If you are 
 == Screenshots ==
 
 1. The user interface for checking off items prior to launch.
+2. Button showing how to get current checklist items from "The A11Y Project"
 
 == Changelog ==
 
