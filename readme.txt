@@ -33,8 +33,5 @@ You can modify `checklist_items.php` to contain the items you need.  If you are 
 
 == Changelog ==
 
-= 1.0.1 =
-* Tweak name for submission
-
 = 1.0.0 =
 * Initial release.
