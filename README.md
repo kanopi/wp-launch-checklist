@@ -36,3 +36,9 @@ This plugin gives you the ability to check off items related to launching a site
   * The settings page uses the main `checkbox.php` partial for checkboxes due to a different layout.
   * A select field and a text field types are also present for use.
   * Add additional field types as needed.
+	
+## Deployment
+
+This plugin is maintained on Github but uses the [Wordpress Plugin Deploy Action](https://github.com/marketplace/actions/wordpress-plugin-deploy) to push tags to the WordPress SVN plugin repository.
+
+To do a release make sure you update the files `readme.txt` and `wp-launch-checklist.php` to have the next correct stable tag  
