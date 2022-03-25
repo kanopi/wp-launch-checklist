@@ -4,7 +4,7 @@ WordPress plugin that allows for creation of interactive site launch checklist i
 
 ## Installation
 Download the plugin into a WordPress installation at `/wp-content/plugins/`, and do one of the following...
-* In the terminal, cd into the project and run `wp plugin activate wp-launch-checklist`
+* In the terminal, cd into the project and run `wp plugin activate launch-checklist`
 * Visit the WP admin plugin page and activate the plugin manually.
 
 More info: https://wordpress.org/support/article/managing-plugins/#installing-plugins
