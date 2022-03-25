@@ -14,7 +14,7 @@ WordPress plugin that allows for creation of interactive site launch checklist i
 
 When launching your site there are usually a series of things you do before you "go live" to validate your site is ready to go. This plugin provides an interface for managing that checklist through the Wordpress UI.
 
-The plugin integrates with [The A11Y Project](https://github.com/a11yproject/a11yproject.com) and will pull a list of current accessibility tests to check against. The way to add those extra items is through the settings page for the plugin.
+The plugin integrates with [The A11Y Project](https://github.com/a11yproject/a11yproject.com) and will pull a list of current accessibility tests to check against. The way to add those extra items is through the settings page for the plugin. This feature uses the [jsdelivr](https://www.jsdelivr.com/) service for fetching the data.  You must agree to the [jsdelivr terms](https://www.jsdelivr.com/terms) to use that feature.
 
 == Frequently Asked Questions ==
 
