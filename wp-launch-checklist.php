@@ -18,7 +18,7 @@ namespace WpLaunchChecklist\Launch_Checklist;
  * Plugin Name:       Launch Checklist
  * Plugin URI:        https://github.com/kanopi/wp-launch-checklist
  * Description:       Creates an interactive launch checklist.
- * Version:           1.0.2
+ * Version:           1.0.0
  * Author:            Kanopi Studios
  * Author URI:        https://kanopi.com
  * License:           GPL-2.0+
