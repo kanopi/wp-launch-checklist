@@ -9,7 +9,7 @@ class WCAG {
 	 *
 	 * @var string $endpoint_url
 	 */
-	protected string $endpoint_url = 'https://raw.githubusercontent.com/a11yproject/a11yproject.com/main/src/_data/checklists.json';
+	protected string $endpoint_url = 'https://cdn.jsdelivr.net/gh/a11yproject/a11yproject.com@1.5.0/src/_data/checklists.json';
 
 	/**
 	 * Get the accessibility checklist items and store it in a transient for later use.
@@ -71,18 +71,12 @@ class WCAG {
 			return $data;
 		}
 
-		$endpoint_data = wp_list_pluck( json_decode( $response_body ), 'tasks', 'checkboxId' );
-
-		if ( empty( $endpoint_data ) ) {
-			return $data;
-		}
-
 		/**
 		 * Format the accessibility config array to the same format
 		 * as the plugin's checklist_items.php file so we can
 		 * combine it with that array for easier display.
 		 */
-		foreach ( $endpoint_data as $key => $items ) {
+		foreach ( json_decode( $response_body ) as $key => $items ) {
 			foreach ( $items as $index => $obj ) {
 				$data['tasks'][] = [
 					'name'        => $obj->checkboxId,
