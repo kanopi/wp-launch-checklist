@@ -14,11 +14,6 @@ return [
 				'description' => 'The from address in automated emails sent during registration and new password requests, and other notifications',
 			],
 			[
-				'name'        => 'site_admin_email',
-				'label'       => 'Site admin email',
-				'description' => 'The from address in automated emails sent during registration and new password requests, and other notifications',
-			],
-			[
 				'name'        => 'site_information_name',
 				'label'       => 'Verify the site title tag is correct',
 				'description' => 'Make sure the Site name field is correct.',
