@@ -36,6 +36,7 @@ You can modify `checklist_items.php` to contain the items you need.  If you are 
 = 1.0.1 =
 * Test against WordPress 6.0
 * Add icon
+* Fix #8. Thank you BarryHughes
 
 = 1.0.0 =
 * Initial release.
