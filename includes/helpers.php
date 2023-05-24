@@ -5,9 +5,9 @@ namespace WpLaunchChecklist\Launch_Checklist;
 /**
  * Get all the checklist items that have values stored.
  *
- * @return array
+ * @return mixed
  */
-function get_wp_launch_checklist_values() : array {
+function get_wp_launch_checklist_values() : mixed {
 	return get_option( WP_LAUNCH_CHECKLIST_SLUG . '_values', array() );
 }
 
