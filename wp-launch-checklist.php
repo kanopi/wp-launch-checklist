@@ -114,7 +114,7 @@ function run_wp_launch_checklist() {
 	$requirements = new Plugin_Requirements(
 		[
 			'plugin_name'         => WP_LAUNCH_CHECKLIST_NAME,
-			'php_version'         => '7.4',
+			'php_version'         => '8.0',
 			'wp_version'          => '5.5',
 			'plugin_file'         => __FILE__,
 			'php_server_version'  => phpversion(),
