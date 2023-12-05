@@ -2,7 +2,7 @@
 Contributors: kanopi
 Tags: launch, pre-launch, checklist
 Requires at least: 5.0
-Tested up to: 6.0
+Tested up to: 6.4
 Stable tag: 1.0.2
 Requires PHP: 8.0
 License: GPLv2 or later
