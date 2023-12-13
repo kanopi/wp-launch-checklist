@@ -245,6 +245,11 @@ return [
 				'label'       => 'Transient API Usage',
 				'description' => 'Consider using the <a href="https://developer.wordpress.org/apis/handbook/transients/">transients api</a> for better performance.',
 			],
+			[
+				'name'        => 'enforce_https_pantheon',
+				'label'       => 'Enforce HTTPS redirects on all Pantheon hosting platforms (DEV, TEST, LIVE) within pantheon.yml',
+				'description' => 'See <a href="https://docs.pantheon.io/http-to-https#redirect-to-https-and-the-primary-domain">the documentation</a> for more information.',
+			]
 		],
 	],
 	'database' => [
