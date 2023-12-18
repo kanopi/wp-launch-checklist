@@ -3,7 +3,7 @@ Contributors: kanopi
 Tags: launch, pre-launch, checklist
 Requires at least: 5.0
 Tested up to: 6.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,9 @@ You can modify `checklist_items.php` to contain the items you need.  If you are 
 2. Button showing how to get current checklist items from "The A11Y Project"
 
 == Changelog ==
+
+= 1.0.4 =
+* Add checklist item requested in #11 for Pantheon HTTPS check.
 
 = 1.0.3 =
 * Test against WordPress 6.4

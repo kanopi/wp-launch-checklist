@@ -18,7 +18,7 @@ namespace WpLaunchChecklist\Launch_Checklist;
  * Plugin Name:       Launch Checklist
  * Plugin URI:        https://github.com/kanopi/wp-launch-checklist
  * Description:       Creates an interactive launch checklist.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Kanopi Studios
  * Author URI:        https://kanopi.com
  * License:           GPL-2.0+
@@ -37,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'WP_LAUNCH_CHECKLIST_VERSION', '1.0.3' );
+define( 'WP_LAUNCH_CHECKLIST_VERSION', '1.0.4' );
 
 /**
  * Root path to the plugin files.
